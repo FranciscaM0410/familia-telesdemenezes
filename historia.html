@@ -2,35 +2,54 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>História da Família</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>História da Família</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: linear-gradient(to bottom, #f8f1e4, #efe3cc);
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.7;
+      background-image: linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)), url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: #4a3728;
     }
 
     header {
       background: #6b4f3a;
       color: #fff8ef;
-      padding: 20px;
+      padding: 30px 20px 20px 20px;
       text-align: center;
     }
 
-    nav a {
-      color: #fff8ef;
-      margin: 0 10px;
+    .menu-btn {
       text-decoration: none;
+      display: inline-block;
+      padding: 10px 18px;
+      margin: 0 4px;
+      border-radius: 20px;
+      background-color: #c8a97e;
+      color: white;
       font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu-btn:hover {
+      background-color: #a67c52;
+    }
+
+    .ativo {
+      background-color: #a67c52;
     }
 
     .container {
-      padding: 30px 20px;
       max-width: 900px;
-      margin: auto;
+      margin: 30px auto;
+      padding: 20px;
     }
   </style>
 </head>
@@ -38,31 +57,19 @@
 <body>
 
 <header>
-  <h1>Família Teles de Menezes</h1>
-  <a href="index.html"
-       style="text-decoration: none; display: inline-block; padding: 10px 18px; margin: 0 4px; border-radius: 20px; background-color: #c8a97e; color: white; font-weight: bold; transition: 0.3s;"
-       onmouseover="this.style.backgroundColor='#a67c52'"
-       onmouseout="this.style.backgroundColor='#c8a97e'">
-      Início
-    </a>
 
-    <a href="pais.html"
-       style="text-decoration: none; display: inline-block; padding: 10px 18px; margin: 0 4px; border-radius: 20px; background-color: #c8a97e; color: white; font-weight: bold; transition: 0.3s;"
-       onmouseover="this.style.backgroundColor='#a67c52'"
-       onmouseout="this.style.backgroundColor='#c8a97e'">
-      Meus Pais
-    </a>
-    <a href="arvore.html"
-       style="text-decoration: none; display: inline-block; padding: 10px 18px; margin: 0 4px; border-radius: 20px; background-color: #c8a97e; color: white; font-weight: bold; transition: 0.3s;"
-       onmouseover="this.style.backgroundColor='#a67c52'"
-       onmouseout="this.style.backgroundColor='#c8a97e'">
-       Árvore Genealógica
-    </a>
-  <a href="historia.html"
-   style="text-decoration: none; display: inline-block; padding: 10px 18px; margin: 0 4px; border-radius: 20px; background-color: #a67c52; color: white; font-weight: bold;">
-   História da Família
-</a>
-     </header>
+  <h1 style="font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 10px;">
+    História da Família
+  </h1>
+
+  <div style="margin-top: 15px;">
+    <a href="index.html" class="menu-btn">Início</a>
+    <a href="pais.html" class="menu-btn">Meus Pais</a>
+    <a href="arvore.html" class="menu-btn">Árvore Genealógica</a>
+    <a href="historia.html" class="menu-btn ativo">História Familiar</a>
+  </div>
+
+</header>
 
 <div class="container">
 
@@ -103,25 +110,25 @@
   </p>
 
   <p>
-    Embora “Santo” nunca tenha sido seu sobrenome oficial, foi assim que ele passou a ser conhecido. Esse nome surgiu, segundo um dos relatos da família, ainda em seu nascimento. Ao ouvir alguém dizer que o bebê era feio, sua mãe respondeu com amor: <strong>“Ele não é feio, ele é lindo… é um santinho.”</strong> A partir daí, o apelido <em>Santinho</em> cresceu com ele, tornando-se depois “Santo”, e atravessando gerações.
+    Embora “Santo” nunca tenha sido seu sobrenome oficial, foi assim que ele passou a ser conhecido. Esse nome surgiu, segundo um dos relatos da família, ainda em seu nascimento. Ao ouvir alguém dizer que o bebê era feio, sua mãe respondeu com amor: <strong>“Ele não é feio, ele é lindo… é um santinho.”</strong>
   </p>
 
   <p>
-    Outra versão diz que esse nome veio da forma como ele viveu. Um homem humilde, bom, sempre disposto a ajudar, respeitado por todos. Assim, o “Santo” não era apenas um apelido, mas um reconhecimento de quem ele era.
+    Outra versão diz que esse nome veio da forma como ele viveu. Um homem humilde, bom, sempre disposto a ajudar, respeitado por todos.
   </p>
 
   <p>
-    Com o tempo, esse nome passou também para seus filhos. Meu pai era conhecido como <strong>Antônio Santo</strong>, meus tios como <strong>Chico Santo</strong>, e assim o nome se tornou parte da identidade da família — mesmo sem nunca ter sido oficial.
+    Com o tempo, esse nome passou também para seus filhos. Meu pai era conhecido como <strong>Antônio Santo</strong>, meus tios como <strong>Chico Santo</strong>.
   </p>
 
   <h3 style="color:#6b4f3a; margin-top:25px;">A humildade até o fim</h3>
 
   <p>
-    Sua humildade ficou marcada até o fim de sua vida. Meu avô pediu para ser enterrado <strong>na entrada do cemitério de Araquém</strong>, e explicava esse desejo com palavras que revelam profundamente quem ele era: ele dizia que queria ser pisado por todos que entrassem e saíssem do cemitério, porque, para ele, não era nada nesta vida.
+    Seu desejo final foi ser enterrado na entrada do cemitério de Araquém, para que todos pisassem sobre seu túmulo, pois dizia que não era nada nesta vida.
   </p>
 
   <p>
-    Mais tarde, sua esposa, minha avó Raimunda, e alguns de seus filhos também foram sepultados no mesmo local, fortalecendo ainda mais esse vínculo de união familiar.
+    Mais tarde, sua esposa e filhos também foram sepultados ali.
   </p>
 
   <h3 style="color:#6b4f3a; margin-top:25px;">
@@ -129,27 +136,19 @@
   </h3>
 
   <p>
-    A vida da família seguiu marcada por muitas lutas e desafios. No sertão cearense, na região de Coreaú, no distrito de Araquém, as dificuldades eram grandes. A seca castigava, a comida era pouca, e sobreviver exigia coragem todos os dias.
+    A família enfrentou a seca, a fome e grandes dificuldades no Ceará, até decidir partir rumo a Brasília.
   </p>
 
   <p>
-    Meu pai ainda jovem já enfrentava essa realidade dura. Trabalhou desde cedo ajudando na construção de um pequeno açude na fazenda da família, carregando barro e pedra no lombo de jumento, tentando guardar água para os tempos difíceis.
+    Meu pai trabalhou desde jovem, ajudando na construção de açudes.
   </p>
 
   <p>
-    Mesmo com todo esforço, a situação piorava com a seca. A fome era uma ameaça constante. Foi então que surgiu a decisão de partir. Com esperança de uma vida melhor, meu pai resolveu seguir viagem rumo a Brasília, que estava sendo construída.
-  </p>
-
-  <p>
-    A viagem foi extremamente difícil. Minha mãe estava grávida e eles já tinham quatro filhos pequenos. Venderam o pouco que tinham — animais, utensílios e até o que servia para o sustento — para conseguir pagar a viagem.
-  </p>
-
-  <p>
-    Partiram em um caminhão pau de arara, junto com muitos outros retirantes. Era uma viagem longa, de muitos dias, enfrentando calor, poeira, fome, cansaço e incertezas.
+    A viagem foi feita em pau de arara, com minha mãe grávida e quatro filhos pequenos.
   </p>
 
   <p style="margin-bottom: 0;">
-    Essa travessia representa a força, a coragem e a união da nossa família — uma história que nunca será esquecida.
+    Uma história de coragem, fé e união que nunca será esquecida.
   </p>
 
 </div>
