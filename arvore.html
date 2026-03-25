@@ -4,28 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Árvore Genealógica</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
 
   <style>
-    * {.autora {
-  border: 2px solid #d4af37 !important;
-  background: linear-gradient(145deg, #fffdf6, #f7e7b6);
-  box-shadow: 0 6px 18px rgba(212,175,55,0.4);
-}
-
-.autora strong {
-  color: #8b6b00;
-}
-
-.autora::after {
-  content: "⭐ Autora deste site";
-  display: block;
-  margin-top: 6px;
-  font-size: 0.8rem;
-  color: #8b6b00;
-  font-style: italic;
-}
+    * {
       box-sizing: border-box;
     }
 
@@ -67,7 +49,7 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 30px auto;
       padding: 20px;
     }
@@ -86,53 +68,101 @@
     }
 
     .tree-section {
-      background: rgba(255, 248, 239, 0.9);
+      background: rgba(255, 248, 239, 0.92);
       border: 2px solid #d4b48c;
       border-radius: 18px;
-      padding: 30px 20px;
+      padding: 30px 20px 35px;
       box-shadow: 0 6px 18px rgba(80, 50, 20, 0.12);
     }
 
-    .tree-lineage {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 35px;
+    .generation-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: #6b4f3a;
+      margin: 10px 0 22px;
     }
 
+    .grandparents-grid,
+    .parents-grid,
+    .children-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grandparents-grid {
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      margin-bottom: 20px;
+    }
+
+    .parents-grid {
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      margin: 10px 0 30px;
+      align-items: stretch;
+    }
+
+    .children-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .family-block,
     .person-card,
     .couple-card,
     .child-card {
       background: #fffdf8;
       border: 1px solid #d7c2a3;
       border-radius: 16px;
-      padding: 14px 18px;
-      text-align: center;
+      padding: 16px 18px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.06);
     }
 
-    .person-card {
-      min-width: 250px;
+    .family-block h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      text-align: center;
+      color: #5a3f2c;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+    }
+
+    .person-card strong,
+    .couple-card strong,
+    .child-card strong {
+      display: block;
+      color: #5a3f2c;
+      margin-bottom: 6px;
+      font-size: 1.03rem;
+    }
+
+    .person-card span,
+    .couple-card span,
+    .child-card span {
+      display: block;
+      color: #745d49;
+      font-size: 0.95rem;
+    }
+
+    .line-separator {
+      text-align: center;
+      font-size: 26px;
+      color: #8a6a4c;
+      margin: 8px 0 18px;
     }
 
     .couple-card {
       background: #fdf6ea;
       border: 2px solid #c89f6a;
-      max-width: 420px;
-      width: 100%;
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 28px;
     }
 
     .children-title {
       text-align: center;
       font-size: 24px;
       margin: 20px 0;
-    }
-
-    .children-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      color: #5c4330;
+      font-family: 'Playfair Display', serif;
     }
 
     .child-card.vivo {
@@ -144,9 +174,30 @@
       background: #fff9f9;
     }
 
-    .arrow {
-      font-size: 22px;
-      color: #8a6a4c;
+    .status {
+      margin-top: 8px;
+      font-size: 0.84rem;
+      font-style: italic;
+      color: #7a6656;
+    }
+
+    .autora {
+      border: 2px solid #d4af37 !important;
+      background: linear-gradient(145deg, #fffdf6, #f7e7b6);
+      box-shadow: 0 6px 18px rgba(212,175,55,0.35);
+    }
+
+    .autora strong {
+      color: #8b6b00;
+    }
+
+    .autora::after {
+      content: "⭐ Autora deste site";
+      display: block;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: #8b6b00;
+      font-style: italic;
     }
 
     footer {
@@ -154,16 +205,24 @@
       padding: 20px;
       color: #6b5848;
     }
+
+    @media (max-width: 820px) {
+      .grandparents-grid,
+      .parents-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .titulo {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-
-  <h1 style="font-family: 'Playfair Display', serif;">
-    Árvore Genealógica
-  </h1>
+  <h1 style="font-family: 'Playfair Display', serif;">Árvore Genealógica</h1>
 
   <div style="margin-top: 15px;">
     <a href="index.html" class="menu-btn">Início</a>
@@ -171,67 +230,168 @@
     <a href="arvore.html" class="menu-btn ativo">Árvore Genealógica</a>
     <a href="historia.html" class="menu-btn">História Familiar</a>
   </div>
-
 </header>
 
 <div class="container">
 
   <h2 class="titulo">Árvore Genealógica da Família</h2>
-  <p class="subtitulo">Principais nomes, gerações e memórias</p>
+  <p class="subtitulo">Ramos paterno e materno, pais e filhos</p>
 
   <section class="tree-section">
 
-    <div class="tree-lineage">
-      <div class="person-card">
-        <strong>José Francisco de Menezes</strong>
-        <span>(1825–1899)</span>
+    <h3 class="generation-title">Raízes da Família</h3>
+
+    <div class="grandparents-grid">
+
+      <div class="family-block">
+        <h3>Ramo Paterno</h3>
+
+        <div class="person-card" style="margin-bottom: 12px;">
+          <strong>Paulo Lima de Menezes</strong>
+          <span>também conhecido como Santo Teles</span>
+          <span>1898 – 1974</span>
+        </div>
+
+        <div class="person-card">
+          <strong>Raimunda Hermina de Souza</strong>
+          <span>1901 – falecida</span>
+        </div>
       </div>
 
-      <div class="arrow">↓</div>
+      <div class="family-block">
+        <h3>Ramo Materno</h3>
 
-      <div class="person-card">
-        <strong>Joaquim Tolentino de Menezes</strong>
-        <span>conhecido como Kinka Teles</span>
+        <div class="person-card" style="margin-bottom: 12px;">
+          <strong>Antônio Zeferino Marques de Souza</strong>
+          <span>1897 – falecido</span>
+        </div>
+
+        <div class="person-card">
+          <strong>Roza Maria de Jesus</strong>
+          <span>falecida</span>
+        </div>
       </div>
 
-      <div class="arrow">↓</div>
+    </div>
 
-      <div class="person-card">
-        <strong>Paulo Teles de Menezes</strong>
-        <span>registrado como Paulo Lima de Menezes<br>conhecido como Santo Teles</span>
+    <div class="line-separator">↓</div>
+
+    <div class="parents-grid">
+
+      <div class="family-block">
+        <h3>Filho do Ramo Paterno</h3>
+        <div class="person-card">
+          <strong>Antônio Teles de Menezes</strong>
+          <span>15/11/1931 – 29/12/1988</span>
+          <span>Coreaú, Ceará – Brazlândia, DF</span>
+        </div>
       </div>
 
-      <div class="arrow">↓</div>
-
-      <div class="couple-card">
-        <strong>Antônio Teles de Menezes ✧ Edite Maria de Jesus</strong>
-        <span>Casal central desta linhagem familiar</span>
+      <div class="family-block">
+        <h3>Filha do Ramo Materno</h3>
+        <div class="person-card">
+          <strong>Edite Maria de Jesus</strong>
+          <span>01/10/1934 – 21/01/1988</span>
+          <span>Coreaú, Ceará – Brazlândia, DF</span>
+        </div>
       </div>
+
+    </div>
+
+    <div class="line-separator">↓</div>
+
+    <div class="couple-card">
+      <strong>Antônio Teles de Menezes ✧ Edite Maria de Jesus</strong>
+      <span>Casal central desta linhagem familiar</span>
     </div>
 
     <h3 class="children-title">Filhos</h3>
 
     <div class="children-grid">
 
-      <div class="child-card vivo"><strong>Matias Lima de Menezes</strong><span>1950 – vivo</span></div>
-      <div class="child-card falecido"><strong>Áurea Lima de Menezes</strong><span>1951 – 1956</span></div>
-      <div class="child-card vivo"><strong>Roza Lima de Menezes</strong><span>1956 – viva</span></div>
-      <div class="child-card vivo"><strong>Paulo Antônio Neto</strong><span>1957 – vivo</span></div>
-      <div class="child-card vivo"><strong>Antônio Menezes</strong><span>1958 – vivo</span></div>
-      <div class="child-card vivo"><strong>Orlando Teles de Menezes</strong><span>1960 – vivo</span></div>
+      <div class="child-card vivo">
+        <strong>Matias Lima de Menezes</strong>
+        <span>1950 – vivo</span>
+        <div class="status">Filho</div>
+      </div>
 
-      <div class="child-card falecido"><strong>Alfredo Lima de Menezes</strong><span>1961 – 1966</span></div>
+      <div class="child-card falecido">
+        <strong>Áurea Lima de Menezes</strong>
+        <span>1951 – 1956</span>
+        <div class="status">Falecida ainda criança</div>
+      </div>
 
-      <div class="child-card vivo"><strong>Raimunda Teles de Menezes Cardoso</strong><span>1963 – viva</span></div>
+      <div class="child-card vivo">
+        <strong>Roza Lima de Menezes</strong>
+        <span>1956 – viva</span>
+        <div class="status">Filha</div>
+      </div>
 
-      <div class="child-card falecido"><strong>Francisca Teles de Menezes</strong><span>1962 – 1967</span></div>
+      <div class="child-card vivo">
+        <strong>Paulo Antônio Neto</strong>
+        <span>1957 – vivo</span>
+        <div class="status">Filho</div>
+      </div>
 
-      <div class="child-card vivo"><strong>Maria de Fátima Menezes Silva</strong><span>1967 – viva</span></div>
-      <div class="child-card vivo"><strong>Cláudio Lima de Menezes</strong><span>1968 – vivo</span></div>
-      <div class="child-card vivo autora"> <strong>Francisca das Chagas Menezes Sugimoto</strong> <span>1969 – viva</span>
-</div>
-      <div class="child-card vivo"><strong>Clóves Lima de Menezes</strong><span>1971 – vivo</span></div>
-      <div class="child-card vivo"><strong>Gleisson Teles de Menezes</strong><span>1973 – vivo</span></div>
+      <div class="child-card vivo">
+        <strong>Antônio Menezes</strong>
+        <span>1958 – vivo</span>
+        <div class="status">Filho</div>
+      </div>
+
+      <div class="child-card vivo">
+        <strong>Orlando Teles de Menezes</strong>
+        <span>1960 – vivo</span>
+        <div class="status">Filho</div>
+      </div>
+
+      <div class="child-card falecido">
+        <strong>Alfredo Lima de Menezes</strong>
+        <span>1961 – 1966</span>
+        <div class="status">Falecido ainda criança</div>
+      </div>
+
+      <div class="child-card vivo">
+        <strong>Raimunda Teles de Menezes Cardoso</strong>
+        <span>1963 – viva</span>
+        <div class="status">Filha</div>
+      </div>
+
+      <div class="child-card falecido">
+        <strong>Francisca Teles de Menezes</strong>
+        <span>1962 – 1967</span>
+        <div class="status">Falecida ainda criança</div>
+      </div>
+
+      <div class="child-card vivo">
+        <strong>Maria de Fátima Menezes Silva</strong>
+        <span>1967 – viva</span>
+        <div class="status">Filha</div>
+      </div>
+
+      <div class="child-card vivo">
+        <strong>Cláudio Lima de Menezes</strong>
+        <span>1968 – vivo</span>
+        <div class="status">Filho</div>
+      </div>
+
+      <div class="child-card vivo autora">
+        <strong>Francisca das Chagas Menezes</strong>
+        <span>1969 – viva</span>
+        <div class="status">Filha</div>
+      </div>
+
+      <div class="child-card vivo">
+        <strong>Clóves Lima de Menezes</strong>
+        <span>1971 – vivo</span>
+        <div class="status">Filho</div>
+      </div>
+
+      <div class="child-card vivo">
+        <strong>Gleisson Teles de Menezes</strong>
+        <span>1973 – vivo</span>
+        <div class="status">Filho</div>
+      </div>
 
     </div>
 
