@@ -8,7 +8,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
 
   <style>
-    * {
+    * {.autora {
+  border: 2px solid #d4af37 !important;
+  background: linear-gradient(145deg, #fffdf6, #f7e7b6);
+  box-shadow: 0 6px 18px rgba(212,175,55,0.4);
+}
+
+.autora strong {
+  color: #8b6b00;
+}
+
+.autora::after {
+  content: "⭐ Autora deste site";
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #8b6b00;
+  font-style: italic;
+}
       box-sizing: border-box;
     }
 
@@ -211,7 +228,10 @@
 
       <div class="child-card vivo"><strong>Maria de Fátima Menezes Silva</strong><span>1967 – viva</span></div>
       <div class="child-card vivo"><strong>Cláudio Lima de Menezes</strong><span>1968 – vivo</span></div>
-      <div class="child-card vivo"><strong>Francisca das Chagas Menezes</strong><span>1969 – viva</span></div>
+      <div class="child-card vivo autora">
+  <strong>Francisca das Chagas Menezes</strong>
+  <span>1969 – viva</span>
+</div>
       <div class="child-card vivo"><strong>Clóves Lima de Menezes</strong><span>1971 – vivo</span></div>
       <div class="child-card vivo"><strong>Gleisson Teles de Menezes</strong><span>1973 – vivo</span></div>
 
