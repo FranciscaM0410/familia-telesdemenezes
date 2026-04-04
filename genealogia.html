@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genealogia da Família</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #3e2f23;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
+        url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: linear-gradient(rgba(90, 62, 54, 0.92), rgba(90, 62, 54, 0.92));
+      color: white;
+      text-align: center;
+      padding: 26px 16px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+    }
+
+    header .subtitulo {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .menu {
+      margin-top: 18px;
+    }
+
+    .menu-btn {
+      display: inline-block;
+      margin: 6px 8px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      background: #d8b98c;
+      color: #5a3e36;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .menu-btn:hover {
+      background: #ccb082;
+    }
+
+    .menu-btn.ativo {
+      background: #b9925f;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      background: rgba(255, 248, 239, 0.95);
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #5a3e36;
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 16px;
+      margin-top: 0;
+    }
+
+    .sub {
+      text-align: center;
+      font-style: italic;
+      color: #6b4f3a;
+      margin-top: -6px;
+      margin-bottom: 24px;
+    }
+
+    .observacao {
+      background: #f9f3ea;
+      border-left: 5px solid #8b6f47;
+      padding: 18px;
+      border-radius: 10px;
+      margin: 26px 0;
+    }
+
+    .tree-wrapper {
+      overflow-x: auto;
+      padding: 20px 10px 30px;
+      margin-top: 24px;
+    }
+
+    .tree {
+      min-width: 980px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nivel {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 34px;
+      flex-wrap: nowrap;
+      position: relative;
+    }
+
+    .grupo-casal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      min-width: 280px;
+    }
+
+    .casal {
+      display: flex;
+      gap: 14px;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+
+    .ligacao-casal {
+      width: 70px;
+      height: 2px;
+      background: #a68a6a;
+      margin-top: -2px;
+      margin-bottom: 0;
+    }
+
+    .descida {
+      width: 2px;
+      height: 24px;
+      background: #a68a6a;
+    }
+
+    .ligacao-centro {
+      width: 2px;
+      height: 26px;
+      background: #a68a6a;
+    }
+
+    .card-pessoa {
+      width: 150px;
+      min-height: 190px;
+      background: #fffdf8;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      border: 2px solid #eadbc8;
+      padding: 14px 12px 12px;
+      text-decoration: none;
+      color: #3e2f23;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card-pessoa:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.16);
+      border-color: #c8a97e;
+    }
+
+    .card-pessoa.masculino {
+      border-top: 5px solid #79b7d9;
+    }
+
+    .card-pessoa.feminino {
+      border-top: 5px solid #d97aa7;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: white;
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,0.65);
+    }
+
+    .masculino .avatar {
+      background: linear-gradient(135deg, #79b7d9, #4f87aa);
+    }
+
+    .feminino .avatar {
+      background: linear-gradient(135deg, #d97aa7, #b85684);
+    }
+
+    .nome {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.35;
+      text-align: center;
+      margin-bottom: 8px;
+      min-height: 44px;
+    }
+
+    .datas {
+      font-size: 14px;
+      color: #6b4f3a;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .secao {
+      margin-top: 42px;
+    }
+
+    .linha-suave {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c8a97e, transparent);
+      margin: 40px 0;
+    }
+
+    .grade-detalhes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .bloco-detalhe {
+      background: #fffdf8;
+      border: 1px solid #e2d0b8;
+      border-left: 5px solid #b9925f;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .bloco-detalhe h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .bloco-detalhe p {
+      margin-bottom: 8px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .voltar-topo {
+      margin-top: 12px;
+      display: inline-block;
+      text-decoration: none;
+      color: #8b6f47;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b4f3a;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      .container {
+        margin: 18px 12px;
+        padding: 22px;
+      }
+
+      .menu-btn {
+        display: block;
+        max-width: 240px;
+        margin: 8px auto;
+      }
+    }
+  </style>
+</head>
+<body id="topo">
+
+  <header>
+    <h1>Família Teles de Menezes e Marques de Souza</h1>
+    <div class="subtitulo">
+      Memória, origem e história de uma família<br>
+      <em>Uma trajetória marcada por fé, luta, amor e união ao longo das gerações.</em>
+    </div>
+
+    <div class="menu">
+      <a href="index.html" class="menu-btn">Início</a>
+      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="historia.html" class="menu-btn">História Familiar</a>
+      <a href="genealogia.html" class="menu-btn ativo">Genealogia</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>🌳 Árvore Genealógica</h2>
+    <p class="sub">Versão inicial da árvore visual da família, com cards clicáveis</p>
+
+    <div class="observacao">
+      <h2>📜 Nota importante</h2>
+      <p>
+        Esta é uma primeira versão da árvore genealógica visual, organizada com base nas informações familiares
+        já reunidas e em pesquisas documentais. Ela pode crescer aos poucos, com novas gerações, novas confirmações
+        e novas páginas individuais para cada pessoa.
+      </p>
+    </div>
+
+    <div class="tree-wrapper">
+      <div class="tree">
+
+        <!-- BISAVÓS MATERNOS -->
+        <div class="nivel">
+          <div class="grupo-casal">
+            <div class="casal">
+              <a class="card-pessoa masculino" href="#antonio-marques">
+                <div class="avatar">AM</div>
+                <div class="nome">Antônio Marques de Souza</div>
+                <div class="datas">Patriarca já identificado</div>
+              </a>
+
+              <a class="card-pessoa feminino" href="#floripes">
+                <div class="avatar">FE</div>
+                <div class="nome">Floripes Maria da Encarnação</div>
+                <div class="datas">Matriarca já identificada</div>
+              </a>
+            </div>
+            <div class="ligacao-casal"></div>
+            <div class="descida"></div>
+          </div>
+
+          <div class="grupo-casal">
+            <div class="casal">
+              <a class="card-pessoa masculino" href="#em-pesquisa-1">
+                <div class="avatar">?</div>
+                <div class="nome">Ramo em pesquisa</div>
+                <div class="datas">Bisavós paternos</div>
+              </a>
+
+              <a class="card-pessoa feminino" href="#em-pesquisa-1">
+                <div class="avatar">?</div>
+                <div class="nome">Ramo em pesquisa</div>
+                <div class="datas">Bisavós paternos</div>
+              </a>
+            </div>
+            <div class="ligacao-casal"></div>
+            <div class="descida"></div>
+          </div>
+        </div>
+
+        <!-- AVÓS -->
+        <div class="nivel">
+          <div class="grupo-casal">
+            <div class="casal">
+              <a class="card-pessoa masculino" href="#zeferino">
+                <div class="avatar">ZM</div>
+                <div class="nome">Zeferino Marques de Souza</div>
+                <div class="datas">Bisavô materno</div>
+              </a>
+
+              <a class="card-pessoa feminino" href="#maria-celestina">
+                <div class="avatar">MC</div>
+                <div class="nome">Maria Celestina de Lima</div>
+                <div class="datas">Maroca</div>
+              </a>
+            </div>
+            <div class="ligacao-casal"></div>
+            <div class="descida"></div>
+          </div>
+
+          <div class="grupo-casal">
+            <div class="casal">
+              <a class="card-pessoa masculino" href="#paulo-lima">
+                <div class="avatar">PL</div>
+                <div class="nome">Paulo Lima de Menezes</div>
+                <div class="datas">Avô paterno</div>
+              </a>
+
+              <a class="card-pessoa feminino" href="#raimunda-ermina">
+                <div class="avatar">RE</div>
+                <div class="nome">Raimunda Ermina de Menezes</div>
+                <div class="datas">Avó paterna</div>
+              </a>
+            </div>
+            <div class="ligacao-casal"></div>
+            <div class="descida"></div>
+          </div>
+        </div>
+
+        <!-- PAIS -->
+        <div class="nivel">
+          <div class="grupo-casal">
+            <div class="casal">
+              <a class="card-pessoa masculino" href="#antonio-zeferino">
+                <div class="avatar">AZ</div>
+                <div class="nome">Antônio Zeferino Marques de Souza</div>
+                <div class="datas">08/10/1897</div>
+              </a>
+
+              <a class="card-pessoa feminino" href="#rosa-maria">
+                <div class="avatar">RM</div>
+                <div class="nome">Rosa Maria de Jesus</div>
+                <div class="datas">Esposa de Antônio Zeferino</div>
+              </a>
+            </div>
+            <div class="ligacao-casal"></div>
+            <div class="descida"></div>
+          </div>
+
+          <div class="grupo-casal">
+            <div class="casal">
+              <a class="card-pessoa masculino" href="#antonio-teles">
+                <div class="avatar">AT</div>
+                <div class="nome">Antônio Teles de Menezes</div>
+                <div class="datas">15/11/1931 – 29/12/1988</div>
+              </a>
+
+              <a class="card-pessoa feminino" href="#edite">
+                <div class="avatar">EM</div>
+                <div class="nome">Edite Maria de Jesus</div>
+                <div class="datas">01/10/1934 – 21/01/1988</div>
+              </a>
+            </div>
+            <div class="ligacao-casal"></div>
+            <div class="descida"></div>
+          </div>
+        </div>
+
+        <!-- VOCÊ -->
+        <div class="nivel">
+          <a class="card-pessoa feminino" href="#francisca">
+            <div class="avatar">FS</div>
+            <div class="nome">Francisca das Chagas Menezes Sugimoto</div>
+            <div class="datas">Descendente das famílias Teles de Menezes, Marques de Souza e Lima</div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="linha-suave">
+
+    <div class="secao">
+      <h2>🧬 Detalhes dos cards</h2>
+
+      <div class="grade-detalhes">
+
+        <div class="bloco-detalhe" id="francisca">
+          <h3>Francisca das Chagas Menezes Sugimoto</h3>
+          <p>Descendente das famílias Teles de Menezes, Marques de Souza e Lima.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="edite">
+          <h3>Edite Maria de Jesus</h3>
+          <p>Nascida em 01/10/1934, em Coreaú, Ceará.</p>
+          <p>Faleceu em 21/01/1988.</p>
+          <p>Filha de Antônio Zeferino Marques de Souza e Rosa Maria de Jesus.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="antonio-teles">
+          <h3>Antônio Teles de Menezes</h3>
+          <p>Nascido em 15/11/1931, em Coreaú, Ceará.</p>
+          <p>Faleceu em 29/12/1988, em Brasília, Distrito Federal.</p>
+          <p>Filho de Paulo Lima de Menezes e Raimunda Ermina de Menezes.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="antonio-zeferino">
+          <h3>Antônio Zeferino Marques de Souza</h3>
+          <p>Nascido em 08/10/1897.</p>
+          <p>Filho de Zeferino Marques de Souza e Maria Celestina de Lima.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="rosa-maria">
+          <h3>Rosa Maria de Jesus</h3>
+          <p>Esposa de Antônio Zeferino Marques de Souza.</p>
+          <p>Avó materna na linha já identificada da família.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="paulo-lima">
+          <h3>Paulo Lima de Menezes</h3>
+          <p>Pai de Antônio Teles de Menezes.</p>
+          <p>Avô paterno da linhagem Teles de Menezes.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="raimunda-ermina">
+          <h3>Raimunda Ermina de Menezes</h3>
+          <p>Mãe de Antônio Teles de Menezes.</p>
+          <p>Avó paterna da família.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="zeferino">
+          <h3>Zeferino Marques de Souza</h3>
+          <p>Filho de Antônio Marques de Souza e Floripes Maria da Encarnação.</p>
+          <p>Bisavô materno da família.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="maria-celestina">
+          <h3>Maria Celestina de Lima (Maroca)</h3>
+          <p>Bisavó materna.</p>
+          <p>Segundo a memória familiar, era conhecida como Maroca.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="antonio-marques">
+          <h3>Antônio Marques de Souza</h3>
+          <p>Patriarca importante da linhagem já identificada na árvore familiar.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="floripes">
+          <h3>Floripes Maria da Encarnação</h3>
+          <p>Matriarca da linhagem já identificada na árvore familiar.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="em-pesquisa-1">
+          <h3>Ramo em pesquisa</h3>
+          <p>Este espaço foi reservado para continuar a expansão da árvore genealógica com novos nomes confirmados documentalmente.</p>
+          <p>Depois, podemos substituir estes cards provisórios pelos antepassados corretos.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Site da família em construção com carinho, memória e pesquisa genealógica.
+  </footer>
+<section class="container">
+  <h2 class="geracao-titulo">Geração dos Avós e Bisavós</h2>
+
+  <div class="card">
+    <h3>Antônio Zeferino de Souza 📜</h3>
+    <p>Avô materno.</p>
+    <p>Casado com Roza Maria de Jesus 📜.</p>
+    <p>Filho de Zeferino Marques de Souza 📜 e Maria Celestina de Lima 📜.</p>
+  </div>
+
+  <div class="card">
+    <h3>Roza Maria de Jesus 📜</h3>
+    <p>Avó materna.</p>
+    <p>Filha de João Marques de Souza 📜 e Mariana Lima de Jesus 📜.</p>
+  </div>
+
+  <div class="card">
+    <h3>Zeferino Marques de Souza 📜</h3>
+    <p>Bisavô materno.</p>
+    <p>Esposo de Maria Celestina de Lima 📜.</p>
+  </div>
+
+  <div class="card">
+    <h3>Maria Celestina de Lima 📜</h3>
+    <p>Bisavó materna.</p>
+    <p>Esposa de Zeferino Marques de Souza 📜.</p>
+  </div>
+
+  <div class="card">
+    <h3>João Marques de Souza 📜</h3>
+    <p>Bisavô materno.</p>
+    <p>Irmão de Zeferino Marques de Souza (informação familiar).</p>
+    <p>Esposo de Mariana Lima de Jesus 📜.</p>
+  </div>
+
+  <div class="card">
+    <h3>Mariana Lima de Jesus 📜</h3>
+    <p>Bisavó materna.</p>
+    <p>Esposa de João Marques de Souza 📜.</p>
+  </div>
+</section>
+</body>
+</html>

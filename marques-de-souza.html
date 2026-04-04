@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Família Marques de Souza</title>
+  <style>
+    :root {
+      --bg: #f5ecd9;
+      --paper: #f8f1e3;
+      --ink: #4b3425;
+      --accent: #8b5e3c;
+      --accent-soft: #d9c2a3;
+      --line: #c7ae8d;
+      --shadow: rgba(75, 52, 37, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #efe1c8 0%, #f8f1e3 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(180deg, rgba(139, 94, 60, 0.95), rgba(111, 72, 44, 0.95));
+      color: #fff8ef;
+      text-align: center;
+      padding: 56px 20px 42px;
+      border-bottom: 4px solid #d6b98e;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    header p {
+      margin: 14px auto 0;
+      max-width: 760px;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 18px 60px;
+    }
+
+    .pergaminho {
+      background: radial-gradient(circle at top, #fbf4e8 0%, var(--paper) 70%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 30px 24px;
+      box-shadow: 0 10px 24px var(--shadow);
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .pergaminho::before {
+      content: "✦";
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 1.2rem;
+      color: var(--accent);
+      opacity: 0.75;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.4);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 14px rgba(75, 52, 37, 0.08);
+    }
+
+    .card strong {
+      color: #603f28;
+    }
+
+    .arvore {
+      overflow-x: auto;
+    }
+
+    .arvore ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 26px;
+      position: relative;
+    }
+
+    .arvore ul::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent-soft);
+    }
+
+    .arvore li {
+      margin: 14px 0;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .arvore li::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: -18px;
+      width: 18px;
+      height: 2px;
+      background: var(--accent-soft);
+    }
+
+    .node {
+      display: inline-block;
+      background: #fffaf2;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      min-width: 230px;
+      box-shadow: 0 6px 12px rgba(75, 52, 37, 0.08);
+    }
+
+    .node .nome {
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .node .meta {
+      font-size: 0.96rem;
+      margin-top: 5px;
+    }
+
+    .irmaos-lista {
+      columns: 2;
+      column-gap: 30px;
+      padding-left: 18px;
+    }
+
+    .irmaos-lista li {
+      margin-bottom: 8px;
+    }
+
+    .nota {
+      font-size: 0.98rem;
+      background: #fff8ee;
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      color: #6a4a35;
+      padding: 24px 18px 46px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      .irmaos-lista {
+        columns: 1;
+      }
+
+      .node {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Família Marques de Souza</h1>
+    <p>
+      Uma página dedicada à memória da linhagem Marques de Souza, com base nas recordações da família
+      e nos documentos antigos encontrados nos registros paroquiais de Sobral e Coreaú.
+    </p>
+  </header>
+
+  <main>
+    <section class="pergaminho">
+      <h2>A origem da família Marques de Souza</h2>
+      <p>
+        A história da família Marques de Souza se perde no tempo, fincada nas terras do norte do Ceará,
+        nas antigas freguesias de Sobral e Coreaú, onde nossos antepassados ajudaram a formar as primeiras
+        bases da sociedade local.
+      </p>
+      <p>
+        Um dos registros mais antigos que preservam essa memória data de <strong>14 de junho de 1816</strong>,
+        na Freguesia de Nossa Senhora da Conceição de Sobral. Nele, encontra-se o casamento de
+        <strong>Joaquim Marques de Souza</strong>, filho legítimo de <strong>Joaquim Marques da Costa</strong>
+        e <strong>Thereza Maria de Jesus</strong>. Este documento representa um marco histórico da presença
+        da família na região.
+      </p>
+      <p>
+        Naquela época, os sobrenomes não eram fixos como hoje. Era comum que filhos escolhessem entre os nomes
+        do pai, da mãe ou até mesmo adotassem nomes religiosos. Assim surgiram variações como
+        <strong>Marques de Souza</strong>, <strong>Marques de Lima</strong> e <strong>Maria de Jesus</strong>,
+        todos pertencentes à mesma raiz familiar.
+      </p>
+      <p>
+        Essa tradição atravessou gerações, chegando até nossos dias. Assim como no passado, os nomes continuam
+        carregando homenagens e histórias, refletindo a identidade e os vínculos familiares.
+      </p>
+    </section>
+
+    <section class="pergaminho">
+      <h2>A tradição dos nomes na família</h2>
+      <p>
+        Na família, os nomes sempre foram mais do que simples identificação: eram homenagens, sinais de afeto
+        e formas de manter vivas as gerações anteriores. Um exemplo disso está no nome
+        <strong>Paulo Antônio Neto</strong>, em que <strong>Paulo</strong> homenageia o avô paterno,
+        <strong>Antônio</strong> homenageia o avô materno, e <strong>Neto</strong> reforça a posição familiar.
+      </p>
+      <p>
+        Esse costume ajuda a explicar por que, nos documentos antigos, um mesmo ramo familiar pode aparecer com
+        sobrenomes diferentes. Entre os homens, era comum o uso de <strong>Marques de Souza</strong>; entre as
+        mulheres, apareciam formas como <strong>Maria de Jesus</strong> e <strong>Marques de Lima</strong>.
+        Não se trata de famílias diferentes, mas da mesma linhagem expressa segundo os costumes de seu tempo.
+      </p>
+      <div class="nota">
+        <strong>Observação importante:</strong> na genealogia antiga, o nome nem sempre se repete de forma idêntica.
+        O que confirma a família é o conjunto: nomes, parentesco, localidade, datas e tradição familiar.
+      </div>
+    </section>
+
+    <section class="pergaminho arvore">
+      <h2>Linha genealógica materna</h2>
+      <ul>
+        <li>
+          <div class="node">
+            <div class="nome">Joaquim Marques da Costa</div>
+            <div class="meta">Casado com Thereza Maria de Jesus</div>
+          </div>
+          <ul>
+            <li>
+              <div class="node">
+                <div class="nome">Joaquim Marques de Souza</div>
+                <div class="meta">Casamento documentado em 14/06/1816, Sobral</div>
+              </div>
+              <ul>
+                <li>
+                  <div class="node">
+                    <div class="nome">(Gerações intermediárias)</div>
+                    <div class="meta">Ramo familiar Marques de Souza em Sobral e Coreaú</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="node">
+                        <div class="nome">Antônio Marques de Souza</div>
+                        <div class="meta">Casado com Floripes Maria da Encarnação</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="node">
+                            <div class="nome">Zeferino Marques de Souza</div>
+                            <div class="meta">Casado com Maria Celestina de Lima</div>
+                          </div>
+                          <ul>
+                            <li>
+                              <div class="node">
+                                <div class="nome">Antônio Zeferino Marques de Souza</div>
+                                <div class="meta">Nascido em 1897 • Casado com Rosa Maria de Jesus</div>
+                              </div>
+                              <ul>
+                                <li>
+                                  <div class="node">
+                                    <div class="nome">Edite Maria de Jesus</div>
+                                    <div class="meta">Filha de Antônio Zeferino Marques de Souza e Rosa Maria de Jesus</div>
+                                  </div>
+                                  <ul>
+                                    <li>
+                                      <div class="node">
+                                        <div class="nome">Francisca das Chagas Menezes Sugimoto</div>
+                                        <div class="meta">Descendente desta linhagem familiar</div>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="pergaminho">
+      <h2>Irmãos de Antônio Zeferino Marques de Souza</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Filhos de Zeferino Marques de Souza e Maria Celestina de Lima</h3>
+          <ul class="irmaos-lista">
+            <li>Gregório Marques de Souza</li>
+            <li>Inácio Marques de Souza</li>
+            <li>Quintino Marques de Souza</li>
+            <li>Floripes Marques de Souza</li>
+            <li>Sebastião Marques de Souza</li>
+            <li>Davi Marques de Souza</li>
+            <li>Fulgência Marques de Souza</li>
+            <li>Maria Branca Marques de Souza</li>
+            <li>Sergina Marques de Souza</li>
+            <li>Pedro Marques de Souza</li>
+            <li>Antônio Zeferino Marques de Souza</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Notas de memória familiar</h3>
+          <p>
+            A lista de irmãos foi reconstruída a partir da memória viva da família, com forte convergência
+            entre os nomes lembrados e os padrões tradicionais do ramo Marques de Souza.
+          </p>
+          <p>
+            Também ficou registrado que, entre os descendentes mais recentes, o nome <strong>Zeferino</strong>
+            voltou a aparecer em homenagem às gerações anteriores, preservando a continuidade da família.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pergaminho">
+      <h2>Base documental e memória familiar</h2>
+      <p>
+        Esta página reúne dois pilares fundamentais da genealogia: a <strong>memória da família</strong>, preservada
+        por filhos, netos e irmãos, e a <strong>documentação histórica</strong>, encontrada em registros paroquiais.
+        Juntas, essas fontes ajudam a reconstruir com dignidade e verdade a história dos que vieram antes.
+      </p>
+      <p>
+        O casamento de Joaquim Marques de Souza, em 1816, é um dos marcos documentais mais antigos já localizados
+        para esta linhagem. A partir dele, a árvore familiar vai sendo completada com nomes, vínculos e histórias
+        que atravessaram o tempo até chegar aos descendentes de hoje.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Página da família Marques de Souza • Preparada para o projeto do site da família de Francisca
+  </footer>
+</body>
+</html>

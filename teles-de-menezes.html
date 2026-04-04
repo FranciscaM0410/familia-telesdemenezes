@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Família Teles de Menezes</title>
+  <style>
+    :root {
+      --bg: #f5ecd9;
+      --paper: #f8f1e3;
+      --ink: #4b3425;
+      --accent: #8b5e3c;
+      --accent-soft: #d9c2a3;
+      --line: #c7ae8d;
+      --shadow: rgba(75, 52, 37, 0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #efe1c8 0%, #f8f1e3 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(180deg, rgba(139, 94, 60, 0.95), rgba(111, 72, 44, 0.95));
+      color: #fff8ef;
+      text-align: center;
+      padding: 56px 20px 42px;
+      border-bottom: 4px solid #d6b98e;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    header p {
+      margin: 14px auto 0;
+      max-width: 760px;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 18px 60px;
+    }
+
+    .pergaminho {
+      background: radial-gradient(circle at top, #fbf4e8 0%, var(--paper) 70%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 30px 24px;
+      box-shadow: 0 10px 24px var(--shadow);
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .pergaminho::before {
+      content: "✦";
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 1.2rem;
+      color: var(--accent);
+      opacity: 0.75;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.4);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 14px rgba(75, 52, 37, 0.08);
+    }
+
+    .arvore ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 26px;
+      position: relative;
+    }
+
+    .arvore ul::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent-soft);
+    }
+
+    .arvore li {
+      margin: 14px 0;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .arvore li::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: -18px;
+      width: 18px;
+      height: 2px;
+      background: var(--accent-soft);
+    }
+
+    .node {
+      display: inline-block;
+      background: #fffaf2;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      min-width: 230px;
+      box-shadow: 0 6px 12px rgba(75, 52, 37, 0.08);
+    }
+
+    .node .nome {
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .node .meta {
+      font-size: 0.96rem;
+      margin-top: 5px;
+    }
+
+    .nota {
+      font-size: 0.98rem;
+      background: #fff8ee;
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      color: #6a4a35;
+      padding: 24px 18px 46px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 1.9rem; }
+      .node { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Família Teles de Menezes</h1>
+    <p>
+      Página dedicada à linhagem paterna da família, reunindo a memória de Antônio Teles de Menezes,
+      seus antepassados e a herança histórica ligada aos ramos Teles de Menezes, Linhares e Vasconcelos.
+    </p>
+  </header>
+
+  <main>
+    <section class="pergaminho">
+      <h2>A linhagem paterna</h2>
+      <p>
+        A família Teles de Menezes guarda uma história profunda, marcada por raízes antigas e por uma presença
+        familiar que atravessou séculos até chegar ao Ceará e, mais tarde, à vida de seus descendentes em Brasília.
+      </p>
+      <p>
+        Nesta linha, destaca-se <strong>Antônio Teles de Menezes</strong> (1931–1988), filho de
+        <strong>Paulo Lima de Menezes</strong>, como um dos representantes mais queridos da memória familiar.
+        Por meio dele, a descendência alcança gerações anteriores ligadas às famílias <strong>Linhares</strong>,
+        <strong>Vasconcelos</strong> e <strong>Teles de Menezes</strong>.
+      </p>
+      <p>
+        Entre os ancestrais mais antigos já identificados encontra-se o <strong>Capitão-mor Dionísio Alves Linhares</strong>
+        (1673–1758), apontado em levantamento genealógico como antepassado direto desta linhagem.
+      </p>
+    </section>
+
+    <section class="pergaminho arvore">
+      <h2>Linha genealógica paterna</h2>
+      <ul>
+        <li>
+          <div class="node">
+            <div class="nome">Capitão-mor Dionísio Alves Linhares</div>
+            <div class="meta">1673–1758</div>
+          </div>
+          <ul>
+            <li>
+              <div class="node">
+                <div class="nome">Dionísia Alves Linhares</div>
+                <div class="meta">1715–1791</div>
+              </div>
+              <ul>
+                <li>
+                  <div class="node">
+                    <div class="nome">Maria da Soledade Linhares Lima</div>
+                    <div class="meta">1741–1840</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="node">
+                        <div class="nome">Tereza Maria de Vasconcelos</div>
+                        <div class="meta">1770–1814</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="node">
+                            <div class="nome">Maria Francisca de Vasconcelos</div>
+                            <div class="meta">1805–1843</div>
+                          </div>
+                          <ul>
+                            <li>
+                              <div class="node">
+                                <div class="nome">Ten. José Francisco de Menezes</div>
+                                <div class="meta">1828–1897</div>
+                              </div>
+                              <ul>
+                                <li>
+                                  <div class="node">
+                                    <div class="nome">Joaquim Tolentino de Menezes</div>
+                                    <div class="meta">1859–1923</div>
+                                  </div>
+                                  <ul>
+                                    <li>
+                                      <div class="node">
+                                        <div class="nome">Paulo Lima de Menezes</div>
+                                        <div class="meta">1898–falecido</div>
+                                      </div>
+                                      <ul>
+                                        <li>
+                                          <div class="node">
+                                            <div class="nome">Antônio Teles de Menezes</div>
+                                            <div class="meta">15/11/1931 – 29/12/1988</div>
+                                          </div>
+                                          <ul>
+                                            <li>
+                                              <div class="node">
+                                                <div class="nome">Francisca das Chagas Menezes Sugimoto</div>
+                                                <div class="meta">Descendente desta linhagem familiar</div>
+                                              </div>
+                                            </li>
+                                          </ul>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="pergaminho">
+      <h2>Memória de Antônio Teles de Menezes</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Dados principais</h3>
+          <p><strong>Nome:</strong> Antônio Teles de Menezes</p>
+          <p><strong>Nascimento:</strong> 15/11/1931, Coreaú, Ceará</p>
+          <p><strong>Falecimento:</strong> 29/12/1988, Brasília, Distrito Federal</p>
+          <p><strong>Pais:</strong> Paulo Lima de Menezes e Raimunda Ermina de Menezes</p>
+        </div>
+        <div class="card">
+          <h3>Legado</h3>
+          <p>
+            Antônio Teles de Menezes faz parte de uma história familiar marcada por esforço, coragem e forte união
+            entre irmãos, filhos e descendentes. Sua memória continua viva nas reuniões de família, nas lembranças
+            compartilhadas e no desejo de preservar a história dos antepassados.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pergaminho">
+      <h2>Base documental</h2>
+      <p>
+        Esta página foi organizada com base nas informações familiares já reunidas e no diagrama genealógico que liga
+        Francisca Sugimoto à linhagem de <strong>Capitão-mor Dionísio Alves Linhares</strong>, passando por sucessivas
+        gerações das famílias Linhares, Vasconcelos e Menezes.
+      </p>
+      <div class="nota">
+        Esta é uma página de ramo específico da árvore geral da família, destinada a aprofundar a linha paterna,
+        enquanto a página da família Marques de Souza aprofunda a linha materna.
+      </div>
+    </section>
+    <section class="pergaminho">
+  <h2>Irmãos de Paulo Lima de Menezes</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Filhos de Joaquim Tolentino de Menezes</h3>
+
+      <ul class="irmaos-lista">
+        <li>Maria de Lourdes de Menezes</li>
+        <li>Philomena Lima de Menezes</li>
+        <li>João Evangelista de Menezes</li>
+        <li>José Tolentino de Menezes</li>
+        <li>Matias Teles de Menezes</li>
+        <li>Donatília Lima de Menezes</li>
+        <li>Pedro Teles de Menezes</li>
+        <li>Paula de Menezes</li>
+        <li>Emília Lima de Menezes</li>
+        <li>Alzira Teles de Menezes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Observação</h3>
+      <p>
+        Esta relação reúne os irmãos de Paulo Lima de Menezes, conforme os registros familiares e a árvore genealógica já organizada.
+      </p>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    Página da família Teles de Menezes • Preparada para o projeto do site da família de Francisca
+  </footer>
+</body>
+</html>

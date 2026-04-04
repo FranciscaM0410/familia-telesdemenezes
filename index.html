@@ -3,219 +3,412 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Família Teles de Menezes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Família Teles de Menezes e Marques de Souza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      line-height: 1.6;
-      background-image: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url('familia-antiga.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+    * {
+      box-sizing: border-box;
     }
 
+   body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #3e2f23;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.80)),
+    url('familia-antiga.jpeg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
     header {
-      background: #6b4f3a;
-      color: #fff8ef;
-      padding: 30px 20px 20px 20px;
+      background: linear-gradient(rgba(90, 62, 54, 0.92), rgba(90, 62, 54, 0.92));
+      color: white;
       text-align: center;
+      padding: 26px 16px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+    }
+
+    header .subtitulo {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .menu {
+      margin-top: 18px;
     }
 
     .menu-btn {
-      text-decoration: none;
-      display: inline-block;
-      padding: 10px 18px;
-      margin: 0 4px;
-      border-radius: 20px;
-      background-color: #c8a97e;
-      color: white;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+  display: inline-block;
+  margin: 6px 8px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  background: #d8b98c;
+  color: #5a3e36;
+  font-weight: 600;
+  transition: 0.3s;
+}
 
-    .menu-btn:hover {
-      background-color: #a67c52;
-    }
+.menu-btn:hover {
+  background: #ccb082;
+}
 
-    .ativo {
-      background-color: #a67c52;
-    }
-
+.menu-btn.ativo {
+  background: #b9925f;
+  color: white;
+}
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 30px auto;
-      padding: 20px;
+      background: rgba(255, 248, 239, 0.95);
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
 
-    .zoom {
-      transform: scale(2);
-      z-index: 1000;
-      position: relative;
+    h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #5a3e36;
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 16px;
+      margin-top: 0;
+    }
+
+    .sub {
+      text-align: center;
+      font-style: italic;
+      color: #6b4f3a;
+      margin-top: -6px;
+      margin-bottom: 24px;
+    }
+
+   .foto-centro {
+  text-align: center;
+  margin: 35px 0;
+}
+
+   .foto-centro img {
+  width: 360px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+}
+
+    .foto-centro p {
+      margin-top: 10px;
+      font-style: italic;
+      color: #6b4f3a;
+    }
+
+    .destaque {
+      background: #f9f3ea;
+      border-left: 5px solid #8b6f47;
+      padding: 18px;
+      border-radius: 10px;
+      margin: 26px 0;
+    }
+
+    .secao {
+      margin-top: 40px;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .card-foto {
+      width: 260px;
+      background: #fffdf8;
+      padding: 12px;
+      border: 1px solid #d8c3a5;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    .card-foto img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.zoom {
+  transform: scale(1.8);
+  z-index: 10;
+  position: relative;
+}
+
+    .card-foto p {
+      margin: 10px 0 0 0;
+      font-style: italic;
+    }
+
+    .linha-do-tempo {
+      margin-top: 25px;
+      border-left: 4px solid #c8a97e;
+      padding-left: 20px;
+    }
+
+    .evento {
+      margin-bottom: 25px;
+    }
+
+    .evento h3 {
+      margin-bottom: 8px;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c8a97e, transparent);
+      margin: 40px 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b4f3a;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      .container {
+        margin: 18px 12px;
+        padding: 22px;
+      }
+
+      .menu-btn {
+        display: block;
+        max-width: 240px;
+        margin: 8px auto;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<header>
+  <header>
+    <h1>Família Teles de Menezes e Marques de Souza</h1>
+    <div class="subtitulo">
+      Memória, origem e história de uma família<br>
+      <em>Uma trajetória marcada por fé, luta, amor e união ao longo das gerações.</em>
+    </div>
 
-  <h1 style="font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 10px;">
-    Família Teles de Menezes e Marques de Souza
-  </h1>
+    <div class="menu">
+      <a href="index.html" class="menu-btn ativo">Início</a>
+      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="historia.html" class="menu-btn">História Familiar</a>
+      <a href="genealogia.html" class="menu-btn">Genealogia</a>
+    </div>
+  </header>
 
-  <p style="margin-top: 0;">
-    Memória, origem e história de uma família
-  </p>
+  <div class="container">
 
-  <p style="font-style: italic; font-size: 14px;">
-    Uma trajetória marcada por fé, luta, amor e união ao longo das gerações.
-  </p>
+    <h2>🌿 De Reis ao Sertão</h2>
+    <p class="sub">A saga da família Teles de Menezes — uma herança que atravessa séculos</p>
 
-  <div style="margin-top: 15px;">
-    <a href="index.html" class="menu-btn ativo">Início</a>
-    <a href="pais.html" class="menu-btn">Meus Pais</a>
-    <a href="arvore.html" class="menu-btn">Árvore Genealógica</a>
-    <a href="historia.html" class="menu-btn">História Familiar</a>
-  </div>
+    <p>
+      Há histórias que se contam em páginas. E há aquelas que se escrevem no tempo.
+      A história da família Teles de Menezes e Marques de Souza não pertence apenas ao passado — ela vive.
+      Vive na memória, no sangue, nos gestos, na fé e no carinho de cada descendente.
+    </p>
 
-</header>
+    <p>
+      Das antigas raízes familiares no Ceará até Brasília, esta é a história de uma família
+      que resistiu, se adaptou, lutou e floresceu ao longo das gerações.
+    </p>
 
-<div class="container">
+    <div class="foto-centro">
+      <img src="pais.jpeg" alt="Antônio Teles de Menezes e Edite Maria de Jesus">
+      <p>Antônio Teles de Menezes e Edite Maria de Jesus</p>
+    </div>
 
-  <div style="text-align: center; margin: 20px 0;">
-    <img src="pais.jpeg" alt="Antônio Teles de Menezes e Edite Maria de Jesus" style="width: 260px; border-radius: 12px;">
-    <p><em>Antônio Teles de Menezes e Edite Maria de Jesus</em></p>
-  </div>
+    <div class="destaque">
+      <h3>✨ Objetivo deste site</h3>
+      <p>
+        Este site foi criado para preservar a memória da família, reunir histórias,
+        fotografias, documentos e organizar a árvore genealógica para as gerações
+        presentes e futuras.
+      </p>
+    </div>
 
-  <p style="text-align: center;">
-    Um registro de memória, origem e história da família.
-  </p>
+    <hr>
 
-  <hr>
+    <div class="secao">
+      <h2>🔎 Descobertas Genealógicas</h2>
 
-  <h2 style="font-family: 'Playfair Display', serif; margin-top: 40px;">Introdução Histórica</h2>
+      <p>
+        A história da família, antes sustentada principalmente pela memória e pelas tradições familiares,
+        começa agora a revelar também suas raízes documentadas.
+      </p>
 
-  <p>
-    Segundo a história contada por meus pais, descendentes de imigrantes dos Países Baixos e de Portugal, e também com base em pesquisas que realizei em cartórios e paróquias, nossos antepassados chegaram ao Brasil por volta do final do século XVIII.
-  </p>
+      <p>
+        A partir de pesquisas genealógicas e do cruzamento entre relatos familiares, livros e registros históricos,
+        foi possível identificar com mais segurança parte da linhagem da família no Ceará, entre os séculos XVIII e XIX.
+      </p>
 
-  <p>
-    Eles desembarcaram principalmente nos portos do Ceará e de Pernambuco. Naquele período, Portugal incentivava a ocupação de suas colônias, motivado tanto por interesses econômicos quanto pelas instabilidades do seu tempo.
-  </p>
+      <p>
+        Destacam-se os ramos das famílias Marques de Souza, Lima e Teles de Menezes,
+        cujos descendentes deram origem a diversos núcleos familiares na região.
+      </p>
 
-  <p>
-    A Holanda também disputou espaço na região Nordeste, especialmente por causa da produção de açúcar, extremamente valiosa na época.
-  </p>
+      <p>
+        Entre essas descobertas, ficou mais claro que os ramos Menezes e Marques de Souza não caminham separados:
+        em diferentes gerações, eles se unem e se reencontram, formando uma árvore familiar rica e profundamente entrelaçada.
+      </p>
 
-  <p>
-    A realidade encontrada, porém, era dura: calor intenso, seca, longas distâncias, falta de estrutura e enorme dificuldade de sobrevivência.
-  </p>
+      <p>
+        Assim, a história que antes vivia apenas na lembrança passa a ganhar forma também nos documentos,
+        unindo tradição e evidência em uma mesma narrativa.
+      </p>
+    </div>
 
-  <p>
-    Ao longo do tempo, houve grande miscigenação entre portugueses, holandeses e povos indígenas da região, formando o povo sertanejo, forte, resistente e profundamente adaptado ao ambiente.
-  </p>
+    <hr>
 
-  <p>
-    É nesse contexto que se inicia a trajetória da família Menezes e Teles, da qual faço parte.
-  </p>
+    <div class="secao">
+      <h2>📜 Introdução Histórica</h2>
 
-  <h2 style="font-family: 'Playfair Display', serif; margin-top: 40px;">Origens da Família e Miscigenação</h2>
+      <p>
+        Segundo a memória familiar e também com base nas pesquisas realizadas em cartórios,
+        paróquias e fontes genealógicas, os antepassados da família chegaram ao Brasil em tempos antigos,
+        fincando raízes no Nordeste, especialmente no Ceará.
+      </p>
 
-  <p>
-    Naquela época, por volta do século XVIII, desembarcaram nos portos de Pernambuco e do Ceará os primeiros membros das famílias que dariam origem aos Menezes e aos Teles.
-  </p>
+      <p>
+        Ao longo do tempo, houve miscigenação entre europeus e povos indígenas da região,
+        formando famílias fortes, resistentes e profundamente ligadas à terra, à fé e à sobrevivência no sertão.
+      </p>
 
-  <p>
-    A população da então vila de Fortaleza era pequena, e todo o Ceará contava com um número reduzido de habitantes. Essa população era formada principalmente por povos indígenas de diversas etnias, como Jê, Tupi, Cariri, entre outras, que ao longo do tempo se misturaram com os colonizadores europeus.
-  </p>
+      <p>
+        Foi nesse contexto que surgiram as gerações que mais tarde dariam origem à família
+        de Antônio Teles de Menezes e Edite Maria de Jesus.
+      </p>
+    </div>
 
-  <p>
-    Dessa miscigenação nasceu o perfil do povo sertanejo: resistente, adaptado ao clima seco e às dificuldades da região.
-  </p>
+    <div class="secao">
+      <h2>🌾 Raízes que floresceram no Brasil</h2>
 
-  <p>
-    No meu caso, trago essa mistura na própria formação da minha família.
-  </p>
+      <p>
+        No Ceará, especialmente em regiões como Coreaú, Sobral e Araquém, a família construiu sua vida
+        com trabalho duro, simplicidade e união. A memória de um passado distante foi sendo transformada
+        em vida concreta, em luta diária, em coragem e em esperança.
+      </p>
 
-  <p>
-    Meus avós maternos tinham características marcantes: eram baixos, de pele morena, cabelos lisos e traços indígenas bem definidos.
-  </p>
+      <p>
+        Cada geração recebeu mais do que um nome: recebeu um legado.
+        Um jeito próprio de enfrentar as dificuldades, de manter a família unida e de seguir adiante.
+      </p>
+    </div>
 
-  <p>
-    Assim, minha origem é fruto da união de povos indígenas, portugueses e europeus.
-  </p>
+    <div class="secao">
+      <h2>👨‍👩‍👧‍👦 O valor da família</h2>
 
-  <h2 style="font-family: 'Playfair Display', serif; margin-top: 40px;">A Vida no Sertão</h2>
+      <p>
+        A verdadeira grandeza dessa linhagem está na dignidade dos que vieram depois:
+        homens e mulheres que construíram suas vidas com coragem, honestidade e amor pelos seus.
+      </p>
 
-  <p>
-    A vida no sertão nordestino era extremamente difícil. As famílias viviam com poucos recursos, enfrentando longos períodos de seca e escassez.
-  </p>
+      <p>
+        Nas casas simples, nas fotografias antigas, nas festas em família, nas lembranças guardadas com carinho
+        e na saudade dos que partiram, a história continua viva.
+      </p>
+    </div>
 
-  <p>
-    O trabalho era pesado e começava desde cedo.
-  </p>
+    <div class="secao">
+      <h2>✨ Memória que segue viva</h2>
 
-  <p>
-    A fome era uma realidade constante para muitas famílias.
-  </p>
+      <p>
+        Hoje, ao olhar para trás, percebemos que essa história não terminou.
+        Ela continua em cada filho, em cada neto e em cada ramo da família que segue crescendo
+        e levando adiante a memória dos que vieram antes.
+      </p>
 
-  <p>
-    Mesmo diante de tantas dificuldades, havia também solidariedade entre as pessoas.
-  </p>
+      <p>
+        Este site é uma forma de manter viva essa herança e de ligar o passado ao presente,
+        preparando o caminho para as gerações do futuro.
+      </p>
+    </div>
 
-  <p>
-    Foi nesse ambiente de luta e superação que meus pais cresceram.
-  </p>
+    <hr>
 
-  <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; margin-top: 45px; border-bottom: 2px solid #d8c3a5; padding-bottom: 8px;">
-    Galeria da Família
-  </h2>
+    <div class="secao">
+      <h2>🖼️ Galeria da Família</h2>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 25px;">
+      <div class="galeria">
+        <div class="card-foto">
+         <img src="pais.jpeg" alt="Meus pais" onclick="this.classList.toggle('zoom')">
+          <p>Meus pais</p>
+        </div>
 
-    <div style="text-align: center;">
-      <div style="background-color: #fffdf8; padding: 12px; border: 1px solid #d8c3a5; border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.18); width: 260px;">
-        <img src="pais.jpeg" onclick="this.classList.toggle('zoom')" style="width: 100%; height: 220px; object-fit: cover; border-radius: 8px; cursor: pointer;">
-        <p><em>Meus pais</em></p>
+        <div class="card-foto">
+         <img src="Aurea.jpeg" alt="Minha irmã Áurea" onclick="this.classList.toggle('zoom')">
+          <p>Morte da minha irmã Áurea</p>
+        </div>
       </div>
     </div>
 
-    <div style="text-align: center;">
-      <div style="background-color: #fffdf8; padding: 12px; border-radius: 14px; width: 260px;">
-        <img src="Aurea.jpeg" onclick="this.classList.toggle('zoom')" style="width: 100%; height: 220px; object-fit: cover; border-radius: 8px;">
-        <p><em>Morte da minha irmã Áurea</em></p>
+    <hr>
+
+    <div class="secao">
+      <h2>🕰️ Linha do Tempo da Família</h2>
+
+      <div class="linha-do-tempo">
+        <div class="evento">
+          <h3>Final do século XVIII</h3>
+          <p>Chegada dos antepassados ao Brasil e formação dos primeiros ramos familiares no Nordeste.</p>
+        </div>
+
+        <div class="evento">
+          <h3>Séculos XIX e XX</h3>
+          <p>Consolidação das famílias Menezes, Marques de Souza e Lima no Ceará, com fortes vínculos entre seus descendentes.</p>
+        </div>
+
+        <div class="evento">
+          <h3>Décadas de 1950 e 1960</h3>
+          <p>Migração de membros da família para Brasília em busca de melhores condições de vida.</p>
+        </div>
+
+        <div class="evento">
+          <h3>Dias atuais</h3>
+          <p>Preservação da história da família por meio de documentos, relatos, fotos e da construção deste site.</p>
+        </div>
       </div>
     </div>
 
   </div>
 
-  <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; margin-top: 50px; text-align: center;">
-    Linha do Tempo da Família
-  </h2>
-
-  <div style="margin-top: 30px; border-left: 4px solid #c8a97e; padding-left: 20px;">
-
-    <div style="margin-bottom: 25px;">
-      <h3>Final do século XVIII</h3>
-      <p>Chegada dos antepassados ao Brasil.</p>
-    </div>
-
-    <div style="margin-bottom: 25px;">
-      <h3>Década de 1950</h3>
-      <p>Migração para Brasília.</p>
-    </div>
-
-    <div>
-      <h3>Dias atuais</h3>
-      <p>Preservação da história da família.</p>
-    </div>
-
-  </div>
-
-</div>
+  <footer>
+    Site da família em construção com carinho, memória e pesquisa genealógica.
+  </footer>
 
 </body>
 </html>
