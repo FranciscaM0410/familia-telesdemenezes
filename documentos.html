@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentos Históricos - Família Teles de Menezes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Mantendo o seu CSS base para consistência */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #3e2f23;
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: linear-gradient(rgba(90, 62, 54, 0.92), rgba(90, 62, 54, 0.92));
+      color: white;
+      text-align: center;
+      padding: 26px 16px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    header h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: 34px; }
+
+    .menu-btn {
+      display: inline-block;
+      margin: 6px 8px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      background: #d8b98c;
+      color: #5a3e36;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .menu-btn:hover { background: #ccb082; }
+    .menu-btn.ativo { background: #b9925f; color: white; }
+
+    .container {
+      max-width: 920px;
+      margin: 30px auto;
+      background: rgba(255, 248, 239, 0.95);
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    h2 { font-family: 'Playfair Display', serif; color: #5a3e36; text-align: center; }
+
+    /* Estilo específico para os Documentos */
+    .card-documento {
+      background: #fffdf8;
+      border: 1px solid #d8c3a5;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .foto-doc {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .foto-doc img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: 1px solid #d8b98c;
+    }
+
+    .zoom { transform: scale(1.5); z-index: 100; position: relative; }
+
+    .transcricao {
+      background: #fdfaf6;
+      border-left: 4px solid #b9925f;
+      padding: 15px;
+      font-size: 15px;
+      line-height: 1.8;
+      text-align: justify;
+      color: #4a3b2e;
+    }
+
+    .vigario {
+      display: block;
+      margin-top: 10px;
+      text-align: right;
+      font-weight: bold;
+      font-style: italic;
+      color: #5a3e36;
+    }
+
+    footer { text-align: center; color: #6b4f3a; padding: 20px; font-size: 14px; }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Família Teles de Menezes e Marques de Souza</h1>
+    <div class="menu">
+      <a href="index.html" class="menu-btn">Início</a>
+      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="historia.html" class="menu-btn">História Familiar</a>
+      <a href="documentos.html" class="menu-btn ativo">Documentos Históricos</a>
+      <a href="genealogia.html" class="menu-btn">Genealogia</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>📜 Provas Documentais da Nossa História</h2>
+    <p style="text-align: center; font-style: italic; color: #6b4f3a; margin-bottom: 30px;">
+      Registros originais da Paróquia de Sobral que comprovam a união de nossas linhagens em 1849.
+    </p>
+
+    <div class="card-documento">
+      <h3>Matrimônio: Inocêncio de Lima Menezes e Teodorica Maria de Lima</h3>
+      <div class="foto-doc">
+        <img src="casamento-inocencio.jpg" alt="Registro Inocêncio e Teodorica" onclick="this.classList.toggle('zoom')">
+        <p style="font-size: 13px; color: #8b6f47;">(Clique na imagem para ampliar)</p>
+      </div>
+      <div class="transcricao">
+        "Aos oito de Janeiro de mil oitocentos e quarenta e nove, nesta Matriz de Sobral... Inocêncio de Lima Menezes, filho legítimo de Vicente Ferreira de Lima e Antônia Alves Linhares; com Teodorica Maria de Lima, filha legítima de Felipe Teles de Menezes e Constança Maria... moradores nesta Freguesia... se receberam por marido e mulher..."
+        <span class="vigario">O Vigário Francisco de Assis</span>
+      </div>
+    </div>
+
+    <div class="card-documento">
+      <h3>Matrimônio: Antônio Marques de Souza e Floripes Maria da Encarnação</h3>
+      <div class="foto-doc">
+        <img src="casamento-trisavos.jpg" alt="Registro Antônio Marques e Floripes" onclick="this.classList.toggle('zoom')">
+        <p style="font-size: 13px; color: #8b6f47;">(Clique na imagem para ampliar)</p>
+      </div>
+      <div class="transcricao">
+        "Aos onze de Janeiro de mil oitocentos e quarenta e nove, nesta Matriz de Sobral... Antônio Marques de Souza, filho legítimo de José Marques de Souza e Maria Joaquina; com Floripes Maria da Encarnação, filha legítima de Antônio Manoel do Espírito Santo e Anna Joaquina... dispensados do impedimento de consanguinidade lateral..."
+        <span class="vigario">O Vigário Francisco de Assis</span>
+      </div>
+    </div>
+
+    <div class="card-documento">
+      <h3>Inventário de José Teles de Menezes (1897)</h3>
+      <div class="foto-doc">
+        <img src="inventario-1897.jpg" alt="Inventário 1897" onclick="this.classList.toggle('zoom')">
+        <p style="font-size: 13px; color: #8b6f47;">(Clique na imagem para ampliar)</p>
+      </div>
+      <div class="transcricao">
+        Documento fundamental que descreve a sucessão de bens e confirma a filiação de Joaquim Tolentino de Menezes e Maria Francisca de Menezes, mantendo a integridade do patrimônio familiar no Ceará.
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Site da família em construção com carinho, memória e pesquisa genealógica.
+  </footer>
+
+</body>
+</html>
