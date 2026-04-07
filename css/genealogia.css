@@ -298,3 +298,30 @@
         margin: 8px auto;
       }
     }
+    .tree-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 20px;
+}
+
+.tree {
+  min-width: 1800px;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 95%;
+}
+
+.nivel {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: nowrap;
+}
+
+.grupo-casal {
+  flex: 0 0 auto;
+}
