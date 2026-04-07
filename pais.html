@@ -3,193 +3,255 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meus Pais</title>
-
+  <title>Meus Pais - Saga Teles de Menezes</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    /* MANTENDO O SEU ESTILO BASE PARA CONSISTÊNCIA */
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      line-height: 1.7;
       color: #3e2f23;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.90), rgba(255,255,255,0.90)),
-        url('familia-antiga.jpeg');
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('familia-antiga.jpeg');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       background-attachment: fixed;
     }
 
     header {
       background: linear-gradient(rgba(90, 62, 54, 0.92), rgba(90, 62, 54, 0.92));
-      color: #fff8ef;
-      padding: 26px 16px;
+      color: white;
       text-align: center;
+      padding: 26px 16px;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
     }
 
-    .menu {
-      margin-top: 8px;
-    }
-
+    header h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: 34px; }
+    .menu { margin-top: 18px; }
     .menu-btn {
-      text-decoration: none;
       display: inline-block;
-      padding: 10px 18px;
       margin: 6px 8px;
+      padding: 10px 18px;
       border-radius: 20px;
+      text-decoration: none;
       background: #d8b98c;
       color: #5a3e36;
       font-weight: 600;
       transition: 0.3s;
     }
-
-    .menu-btn:hover {
-      background: #ccb082;
-    }
-
-    .menu-btn.ativo {
-      background: #b9925f;
-      color: white;
-    }
+    .menu-btn:hover { background: #ccb082; }
+    .menu-btn.ativo { background: #b9925f; color: white; }
 
     .container {
       max-width: 920px;
       margin: 30px auto;
-      background-color: rgba(255,255,255,0.88);
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+      background: rgba(255, 248, 239, 0.95);
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
 
-    .topo-pagina {
-      text-align: center;
-      padding: 30px 15px;
-      margin-bottom: 30px;
+    h2 { font-family: 'Playfair Display', serif; color: #5a3e36; text-align: center; margin-bottom: 30px; }
+    
+    /* ESTILOS DA LINHA DO TEMPO */
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #c8a97e;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: #fffdf8;
+      border: 4px solid #8b6f47;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left { left: 0; }
+    .right { left: 50%; }
+
+    .right::after { left: -10px; }
+
+    .content {
+      padding: 20px;
+      background-color: #fffdf8;
+      position: relative;
       border-radius: 14px;
-      background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6));
+      border: 1px solid #d8c3a5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    h1, h2 {
+    .content h3 {
       font-family: 'Playfair Display', serif;
-      color: #6b4f3a;
+      color: #5a3e36;
+      margin-top: 0;
+      border-bottom: 2px solid #d8b98c;
+      padding-bottom: 5px;
     }
 
-    h1 {
-      font-size: 32px;
-      text-align: center;
-      margin-bottom: 10px;
+    .content p {
+      line-height: 1.8;
+      font-size: 15px;
+      text-align: justify;
+      margin-bottom: 0;
     }
 
-    h2 {
-      font-size: 30px;
-      text-align: center;
+    /* ESTILO DAS IMAGENS ILUSTRATIVAS */
+    .img-ilustrativa {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #c8a97e;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .foto-centro {
-      text-align: center;
-      margin: 25px 0;
-    }
+    footer { text-align: center; color: #6b4f3a; padding: 20px; font-size: 14px; margin-top: 30px;}
 
-    .foto-centro img {
-      width: 420px;
-      max-width: 100%;
-      border-radius: 14px;
-      border: 6px solid #f3e7d3;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(to right, transparent, #c8a97e, transparent);
-      margin: 40px 0;
-    }
-
-    @media (max-width: 700px) {
-      .container {
-        margin: 18px 12px;
-        padding: 22px;
-      }
-
-      .menu-btn {
-        display: block;
-        max-width: 240px;
-        margin: 8px auto;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      h2 {
-        font-size: 26px;
-      }
+    /* RESPONSIVIDADE PARA CELULAR */
+    @media screen and (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item::after { left: 21px; }
+      .right { left: 0%; }
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <div class="menu">
-     <a href="index.html" class="menu-btn ativo">Início</a>
+  <header>
+    <h1>Família Teles de Menezes e Marques de Souza</h1>
+    <div class="menu">
+      <a href="index.html" class="menu-btn ativo">Início</a>
       <a href="pais.html" class="menu-btn">Meus Pais</a>
       <a href="historia.html" class="menu-btn">História Familiar</a>
       <a href="genealogia.html" class="menu-btn">Genealogia</a>
       <a href="documentos.html" class="menu-btn">Documentos Históricos</a>
       <a href="grande-familia.html" class="menu-btn">Grande Família</a>
-  </div>
-</header>
+    </div>
+  </header>
+    <div class="container">
+    <img src="antonio-edite.jpeg" alt="Antônio e Edite" class="img-ilustrativa">
 
-<div class="container">
-
-  <div class="topo-pagina">
-    <h1>Antônio Teles de Menezes e Edite Maria de Jesus</h1>
-    <p style="font-size: 16px; margin-top: 0;">
-      Uma homenagem à história, à luta e ao amor dos meus pais
+       <h2> A Saga de Antônio e Edite</h2>
+    <p style="text-align: center; font-style: italic; color: #6b4f3a; margin-bottom: 40px;">
+      Uma trajetória de amor, fé e superação do Sertão ao Planalto Central.
     </p>
-  </div>
 
-  <div class="foto-centro">
-    <a href="pais.jpeg" target="_blank">
-      <img src="pais.jpeg" alt="Antônio Teles de Menezes e Edite Maria de Jesus">
-    </a>
-  </div>
+    <div class="timeline">
 
-  <h2>Sobre Meus Pais</h2>
+      <div class="timeline-item left">
+        <div class="content">
+          <h3>Raízes e Antepassados</h3>
+          <img src="sertao-origens.jpeg" alt="Ilustração das origens no sertão" class="img-ilustrativa">
+          <p>
+            A nossa história mergulha nas raízes do sertão cearense, fruto de uma rica miscigenação entre europeus e povos indígenas das serras da Ibiapaba. Nossos antepassados estabeleceram-se na região de Sobral e Coreaú entre os séculos XVIII e XIX, enfrentando desde cedo os desafios de uma terra seca, mas cheia de dignidade.
+          </p>
+        </div>
+      </div>
 
-  <p>
-    Esta página é dedicada à memória e à história de Antônio Teles de Menezes e Edite Maria de Jesus,
-    que com muito esforço, coragem e amor construíram a nossa família em meio a grandes desafios.
-  </p>
+      <div class="timeline-item right">
+        <div class="content">
+          <h3>1931 | O Nascimento de um Patriarca</h3>
+          <p>
+            Em 15 de novembro de 1931, nasce <strong>Antônio Teles de Menezes</strong>. Criado na Fazenda Caraúbas, em Araquém (Coreaú-CE), Antônio cresceu sob o exemplo de seu pai, Paulo Lima de Menezes (conhecido como "Santo Teles"), um homem respeitado na comunidade que atuava como mediador de conflitos e Juiz de Paz, sempre pronto a socorrer os vizinhos.
+          </p>
+        </div>
+      </div>
 
-  <p>
-    Meu pai e minha mãe viveram uma trajetória marcada pelo trabalho duro, pela fé e pela dedicação aos filhos.
-    Enfrentaram a pobreza, a seca, a migração e muitas dificuldades, mas nunca deixaram de lutar pela família.
-  </p>
+      <div class="timeline-item left">
+        <div class="content">
+          <h3>1953 | A União de Antônio e Edite</h3>
+          <p>
+            Antônio casa-se com sua prima, <strong>Edite Maria de Jesus</strong>. Juntos, deram início a uma numerosa família. Edite foi a fortaleza do lar, uma mãe dedicada que enfrentou com coragem as dificuldades de uma época em que os recursos eram escassos e a sobrevivência dependia do trabalho braçal e da fé.
+          </p>
+        </div>
+      </div>
 
-  <p>
-    A história deles é também a história de muitos brasileiros que saíram do sertão em busca de uma vida melhor,
-    carregando esperança, dignidade e amor no coração.
-  </p>
+      <div class="timeline-item right">
+        <div class="content">
+          <h3>1957 - 1958 | A Grande Decisão</h3>
+          <p>
+            Diante de uma das secas mais severas do Nordeste e com a responsabilidade de alimentar seis pessoas (o casal e os quatro primeiros filhos), Antônio ouviu falar da "febre" da construção de uma nova capital no centro do país. Em um ato de coragem, vendeu o pouco que tinha — o roçado de macaxeira, os animais e até sua bicicleta — para custear a passagem da família rumo ao desconhecido.
+          </p>
+        </div>
+      </div>
 
-  <hr>
+      <div class="timeline-item left">
+        <div class="content">
+          <h3>Dezembro de 1958 | A Odisseia no Pau de Arara</h3>
+          <img src="pau-de-arara-jornada.jpg" alt="Ilustração da jornada no pau de arara" class="img-ilustrativa">
+          <p>
+            No dia 9 de dezembro de 1958, a família partiu de Araquém. Foram <strong>22 dias e noites</strong> atravessando o Brasil na carroceria de um caminhão "pau de arara". Enfrentaram sol escaldante, estradas de terra precárias e chuvas intensas. Alimentavam-se de farofa de paçoca e arroz cozido em fogos improvisados à beira da estrada. Todas as manhãs, a viagem seguia sob o som das orações do terço, pedindo proteção para as crianças.
+          </p>
+        </div>
+      </div>
 
-  <h2>Memória e Legado</h2>
+      <div class="timeline-item right">
+        <div class="content">
+          <h3>31 de Dezembro de 1958 | A Chegada em Brasília</h3>
+          <img src="chegada-brasilia.jpg" alt="Ilustração da chegada à construção de Brasília" class="img-ilustrativa">
+          <p>
+            Na véspera do Ano Novo, a família avistou a placa "Bem-vindos a Brasília". Desembarcaram no Núcleo Bandeirante (antiga Cidade Livre), exaustos e magros, mas com a esperança renovada. Antônio não perdeu tempo e logo buscou trabalho nas obras e na criação de barracos de madeira para os novos habitantes.
+          </p>
+        </div>
+      </div>
 
-  <p>
-    Este site existe para preservar a memória da família e honrar o legado deixado por eles.
-    Mais do que nomes e datas, eles deixaram exemplos de resistência, união, fé e amor.
-  </p>
+      <div class="timeline-item left">
+        <div class="content">
+          <h3>1959 | O Refúgio na Vargem da Bênção</h3>
+          <p>
+            A família mudou-se para uma chácara na região da Vargem da Bênção (Recanto das Emas). Lá, Antônio trabalhou como caseiro para o Sr. Alberto. Apesar das perdas dolorosas de alguns filhos para as doenças da época, Antônio e Edite mantiveram-se unidos. Foi um período de trabalho duro na terra, plantando mandioca e cuidando da criação para sustentar os filhos que continuavam a chegar.
+          </p>
+        </div>
+      </div>
 
-</div>
+      <div class="timeline-item right">
+        <div class="content">
+          <h3>Década de 1960 | Consolidando o Lar em Taguatinga</h3>
+          <p>
+            Com muito sacrifício e economia, Antônio conseguiu adquirir um lote na <strong>QNG 34, em Taguatinga</strong>. A família deixou a vida rural para se estabelecer definitivamente na cidade. Antônio especializou-se na construção civil, tornando-se um mestre na arte de erguer muros e casas, enquanto Edite administrava um lar que chegou a ter 15 filhos.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="content">
+          <h3>Legado de Honra</h3>
+          <p>
+            Antônio e Edite faleceram em 1988, deixando 11 filhos vivos, todos criados com base na honestidade, no trabalho e na união. O exemplo de Antônio — que nunca aceitou a humilhação e sempre buscou a independência — e a resiliência de Edite permanecem como os alicerces de todos os descendentes da família Teles de Menezes.
+          </p>
+        </div>
+      </div>
+
+    </div> </div> <footer>
+    Site da família em construção com carinho, memória e pesquisa genealógica.
+  </footer>
 
 </body>
 </html>
