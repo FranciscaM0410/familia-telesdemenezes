@@ -1,11 +1,313 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genealogia da Família</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="/css/genealogia.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --fundo: #f6f1ea;
+      --fundo-card: #fffaf4;
+      --marrom: #7b5a45;
+      --marrom-escuro: #5b4030;
+      --bege-borda: #d8be9d;
+      --dourado-suave: #c9a97d;
+      --texto: #4b3d35;
+      --sombra: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #efe4d7, #f8f2eb);
+      border-bottom: 1px solid #e1cdb5;
+      padding: 28px 20px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      color: var(--marrom-escuro);
+      font-size: 2.2rem;
+    }
+
+    .subtitulo {
+      margin-top: 10px;
+      color: #6d5646;
+      font-size: 1rem;
+    }
+
+    .menu {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .menu-btn {
+      text-decoration: none;
+      background: #b78d65;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .menu-btn:hover,
+    .menu-btn.ativo {
+      background: var(--marrom);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 16px;
+    }
+
+    h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--marrom-escuro);
+    }
+
+    .observacao {
+      background: #fff9f2;
+      border: 1px solid #e3ccb2;
+      border-left: 6px solid var(--dourado-suave);
+      padding: 20px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      box-shadow: var(--sombra);
+    }
+
+    .linha-suave {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #ceb190, transparent);
+      margin: 40px 0;
+    }
+
+    /* MINI ÁRVORE */
+    .mini-arvore-wrapper {
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+
+    .mini-arvore {
+      min-width: 980px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .geracao {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: nowrap;
+    }
+
+    .casal-bloco,
+    .pessoa-bloco {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      min-width: 190px;
+    }
+
+    .casal {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .mini-card {
+      width: 180px;
+      min-height: 105px;
+      background: var(--fundo-card);
+      border: 1px solid var(--bege-borda);
+      border-radius: 14px;
+      box-shadow: var(--sombra);
+      text-decoration: none;
+      color: var(--texto);
+      padding: 12px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.15s ease;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .mini-card.masculino {
+      border-top: 5px solid #a57b5b;
+    }
+
+    .mini-card.feminino {
+      border-top: 5px solid #c89d87;
+    }
+
+    .mini-card .sigla {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #e9d8c8;
+      color: var(--marrom-escuro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+    }
+
+    .mini-card .nome {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .mini-card .info {
+      font-size: 0.83rem;
+      color: #71594b;
+    }
+
+    .rotulo-geracao {
+      font-weight: 700;
+      color: var(--marrom);
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    /* LINHAGEM TEXTUAL */
+    .linhagem {
+      background: #fcf8f2;
+      border: 1px solid var(--bege-borda);
+      border-radius: 18px;
+      padding: 26px 22px;
+      box-shadow: var(--sombra);
+    }
+
+    .linhagem h2 {
+      margin-top: 0;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .item-linhagem {
+      margin: 10px 0;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.6);
+      border-left: 4px solid var(--dourado-suave);
+      border-radius: 10px;
+    }
+
+    .nivel-1 { margin-left: 0; }
+    .nivel-2 { margin-left: 28px; }
+    .nivel-3 { margin-left: 56px; }
+    .nivel-4 { margin-left: 84px; }
+    .nivel-5 { margin-left: 112px; }
+    .nivel-6 { margin-left: 140px; }
+
+    .codigo {
+      font-weight: 700;
+      color: var(--marrom);
+    }
+
+    .nome-linhagem {
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: var(--marrom-escuro);
+    }
+
+    /* DETALHES */
+    .secao h2 {
+      margin-bottom: 18px;
+    }
+
+    .grade-detalhes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .bloco-detalhe {
+      background: var(--fundo-card);
+      border: 1px solid var(--bege-borda);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--sombra);
+    }
+
+    .bloco-detalhe h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    .voltar-topo {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #9b6e3d;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: #6f594d;
+      font-size: 0.95rem;
+    }
+
+    .caixa-observacao {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #fff7ee;
+      border: 1px dashed #cfb08a;
+      color: #6a5647;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .mini-card {
+        width: 165px;
+      }
+
+      .nivel-2 { margin-left: 18px; }
+      .nivel-3 { margin-left: 36px; }
+      .nivel-4 { margin-left: 54px; }
+      .nivel-5 { margin-left: 72px; }
+      .nivel-6 { margin-left: 90px; }
+    }
+  </style>
 </head>
 <body id="topo">
 
@@ -26,334 +328,270 @@
     </div>
   </header>
 
-  <div class="container">
+  <main class="container">
     <h2>🌳 Árvore Genealógica</h2>
 
     <div class="observacao">
       <h2>📜 Nota importante</h2>
       <p>
-        Esta é uma primeira versão da árvore genealógica visual, organizada com base nas informações familiares
-        já reunidas e em pesquisas documentais. Ela pode crescer aos poucos, com novas gerações, novas confirmações
-        e novas páginas individuais para cada pessoa.
+        Esta página reúne uma versão visual resumida da família principal e, abaixo, uma linhagem textual mais detalhada
+        das gerações anteriores. Assim, a árvore fica mais organizada, sem misturar pais, avós, bisavós e gerações mais antigas.
       </p>
     </div>
 
-    <div class="tree-wrapper">
-      <div class="tree">
-<!-- HEXAVÓS MATERNOS -->
-<div class="nivel">
-  <div class="grupo-casal">
-    <div class="casal">
-      <a class="card-pessoa masculino" href="#quintiliano">
-        <div class="avatar">QC</div>
-        <div class="nome">Quintiliano Marques da Costa</div>
-        <div class="datas">Hexavô materno 📜</div>
-      </a>
+    <!-- MINI ÁRVORE -->
+    <section class="mini-arvore-wrapper">
+      <div class="mini-arvore">
 
-      <a class="card-pessoa feminino" href="#ermina">
-        <div class="avatar">ES</div>
-        <div class="nome">Ermina de Souza</div>
-        <div class="datas">Hexavó materna 📜</div>
-      </a>
-    </div>
-    <div class="ligacao-casal"></div>
-    <div class="descida"></div>
-  </div>
-
-  <div class="grupo-casal">
-    <div class="casal">
-      <a class="card-pessoa masculino" href="#ricardo-rocha">
-        <div class="avatar">RR</div>
-        <div class="nome">Ricardo da Rocha</div>
-        <div class="datas">Hexavô materno 📜</div>
-      </a>
-
-      <a class="card-pessoa feminino" href="#maria-carneira">
-        <div class="avatar">MC</div>
-        <div class="nome">Maria Carneira</div>
-        <div class="datas">Hexavó materna 📜</div>
-      </a>
-    </div>
-    <div class="ligacao-casal"></div>
-    <div class="descida"></div>
-  </div>
-</div>
-        <!-- GERAÇÃO MAIS ANTIGA IDENTIFICADA -->
-        <div class="nivel">
-          <div class="grupo-casal">
+        <div class="rotulo-geracao">Bisavós</div>
+        <div class="geracao">
+          <div class="casal-bloco">
             <div class="casal">
-              <a class="card-pessoa masculino" href="#joaquim-costa">
-                <div class="avatar">JC</div>
-                <div class="nome">Joaquim Marques da Costa</div>
-                <div class="datas">Pentavô materno 📜</div>
-              </a>
-
-              <a class="card-pessoa feminino" href="#josefa">
-                <div class="avatar">JS</div>
-                <div class="nome">Josefa Maria de Souza</div>
-                <div class="datas">Pentavó materna 📜</div>
-              </a>
-            </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
-          </div>
-
-          <div class="grupo-casal">
-            <div class="casal">
-              <a class="card-pessoa masculino" href="#antonio-manuel">
-                <div class="avatar">AE</div>
-                <div class="nome">Antônio Manoel do Espírito Santo</div>
-                <div class="datas">Tetravô materno 📜</div>
-              </a>
-
-              <a class="card-pessoa feminino" href="#anna-joaquina">
-                <div class="avatar">AJ</div>
-                <div class="nome">Anna Joaquina</div>
-                <div class="datas">Tetravó materna 📜</div>
-              </a>
-            </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
-          </div>
-
-          <div class="grupo-casal">
-            <div class="casal">
-              <a class="card-pessoa masculino" href="#jose-francisco">
-                <div class="avatar">JF</div>
-                <div class="nome">José Francisco de Menezes</div>
-                <div class="datas">Trisavô paterno 📜</div>
-              </a>
-
-              <a class="card-pessoa feminino" href="#livramento">
-                <div class="avatar">ML</div>
-                <div class="nome">Maria do Livramento</div>
-                <div class="datas">Trisavó paterna 📜</div>
-              </a>
-            </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
-          </div>
-
-          <div class="grupo-casal">
-            <div class="casal">
-              <a class="card-pessoa masculino" href="#domingos-medeiros">
-                <div class="avatar">DM</div>
-                <div class="nome">Domingos de Lima de Medeiros</div>
-                <div class="datas">Trisavô paterno 📜</div>
-              </a>
-
-              <a class="card-pessoa feminino" href="#rosa-francisca">
-                <div class="avatar">RF</div>
-                <div class="nome">Rosa Francisca de Menezes</div>
-                <div class="datas">Trisavó paterna 📜</div>
-              </a>
-            </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
-          </div>
-        </div>
-
-        <!-- TETRAVÓS / TRISAVÓS -->
-        <div class="nivel">
-          <div class="grupo-casal">
-            <div class="casal">
-              <a class="card-pessoa masculino" href="#jose-marques">
-                <div class="avatar">JM</div>
-                <div class="nome">José Marques de Souza</div>
-                <div class="datas">Tetravô materno 📜</div>
-              </a>
-
-              <a class="card-pessoa feminino" href="#maria-joaquina">
-                <div class="avatar">MJ</div>
-                <div class="nome">Maria Joaquina de Souza</div>
-                <div class="datas">Tetravó materna 📜</div>
-              </a>
-            </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
-          </div>
-
-          <div class="grupo-casal">
-            <div class="casal">
-              <a class="card-pessoa masculino" href="#antonio-marques">
-                <div class="avatar">AM</div>
-                <div class="nome">Antônio Marques de Souza</div>
-                <div class="datas">Trisavô materno 📜</div>
-              </a>
-
-              <a class="card-pessoa feminino" href="#floripes">
-                <div class="avatar">FE</div>
-                <div class="nome">Floripes Maria da Encarnação</div>
-                <div class="datas">Trisavó materna 📜</div>
-              </a>
-            </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
-          </div>
-
-          <div class="grupo-casal">
-            <div class="casal">
-              <a class="card-pessoa masculino" href="#joaquim-tolentino">
-                <div class="avatar">JT</div>
-                <div class="nome">Joaquim Tolentino de Menezes</div>
-                <div class="datas">Bisavô paterno 📜</div>
-              </a>
-
-              <a class="card-pessoa feminino" href="#maria-jose-lima">
-                <div class="avatar">MJ</div>
-                <div class="nome">Maria José de Lima</div>
-                <div class="datas">Bisavó paterna 📜</div>
-              </a>
-            </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
-          </div>
-        </div>
-
-        <!-- BISAVÓS -->
-        <div class="nivel">
-          <div class="grupo-casal">
-            <div class="casal">
-              <a class="card-pessoa masculino" href="#zeferino">
-                <div class="avatar">ZM</div>
+              <a class="mini-card masculino" href="#zeferino">
+                <div class="sigla">ZM</div>
                 <div class="nome">Zeferino Marques de Souza</div>
-                <div class="datas">Bisavô materno 📜</div>
+                <div class="info">Bisavô materno</div>
               </a>
-
-              <a class="card-pessoa feminino" href="#maria-celestina">
-                <div class="avatar">MC</div>
+              <a class="mini-card feminino" href="#maria-celestina">
+                <div class="sigla">MC</div>
                 <div class="nome">Maria Celestina de Lima</div>
-                <div class="datas">Bisavó materna 📜</div>
+                <div class="info">Bisavó materna</div>
               </a>
             </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
           </div>
 
-          <div class="grupo-casal">
+          <div class="casal-bloco">
             <div class="casal">
-              <a class="card-pessoa masculino" href="#joao-marques">
-                <div class="avatar">JM</div>
+              <a class="mini-card masculino" href="#joao-marques">
+                <div class="sigla">JM</div>
                 <div class="nome">João Marques de Souza</div>
-                <div class="datas">Bisavô materno 📜</div>
+                <div class="info">Bisavô materno</div>
               </a>
-
-              <a class="card-pessoa feminino" href="#mariana-jesus">
-                <div class="avatar">MM</div>
+              <a class="mini-card feminino" href="#mariana-jesus">
+                <div class="sigla">MM</div>
                 <div class="nome">Mariana Maria de Jesus</div>
-                <div class="datas">Bisavó materna 📜</div>
+                <div class="info">Bisavó materna</div>
               </a>
             </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
           </div>
 
-          <div class="grupo-casal">
+          <div class="casal-bloco">
             <div class="casal">
-              <a class="card-pessoa masculino" href="#paulo-lima">
-                <div class="avatar">PL</div>
+              <a class="mini-card masculino" href="#paulo-lima">
+                <div class="sigla">PL</div>
                 <div class="nome">Paulo Lima de Menezes</div>
-                <div class="datas">Avô paterno</div>
+                <div class="info">Avô paterno</div>
               </a>
-
-              <a class="card-pessoa feminino" href="#raimunda-ermina">
-                <div class="avatar">RE</div>
+              <a class="mini-card feminino" href="#raimunda-ermina">
+                <div class="sigla">RE</div>
                 <div class="nome">Raimunda Ermina de Menezes</div>
-                <div class="datas">Avó paterna</div>
+                <div class="info">Avó paterna</div>
               </a>
             </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
           </div>
         </div>
 
-        <!-- AVÓS / PAIS -->
-        <div class="nivel">
-          <div class="grupo-casal">
+        <div class="rotulo-geracao">Avós</div>
+        <div class="geracao">
+          <div class="casal-bloco">
             <div class="casal">
-              <a class="card-pessoa masculino" href="#antonio-zeferino">
-                <div class="avatar">AZ</div>
+              <a class="mini-card masculino" href="#antonio-zeferino">
+                <div class="sigla">AZ</div>
                 <div class="nome">Antônio Zeferino Marques de Souza</div>
-                <div class="datas">08/10/1897</div>
+                <div class="info">Avô materno</div>
               </a>
-
-              <a class="card-pessoa feminino" href="#rosa-maria">
-                <div class="avatar">RM</div>
+              <a class="mini-card feminino" href="#rosa-maria">
+                <div class="sigla">RM</div>
                 <div class="nome">Rosa Maria de Jesus</div>
-                <div class="datas">Esposa de Antônio Zeferino</div>
+                <div class="info">Avó materna</div>
               </a>
             </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
           </div>
+        </div>
 
-          <div class="grupo-casal">
+        <div class="rotulo-geracao">Pais</div>
+        <div class="geracao">
+          <div class="casal-bloco">
             <div class="casal">
-              <a class="card-pessoa masculino" href="#antonio-teles">
-                <div class="avatar">AT</div>
+              <a class="mini-card masculino" href="#antonio-teles">
+                <div class="sigla">AT</div>
                 <div class="nome">Antônio Teles de Menezes</div>
-                <div class="datas">15/11/1931 – 29/12/1988</div>
+                <div class="info">15/11/1931 – 29/12/1988</div>
               </a>
-
-              <a class="card-pessoa feminino" href="#edite">
-                <div class="avatar">EM</div>
+              <a class="mini-card feminino" href="#edite">
+                <div class="sigla">EM</div>
                 <div class="nome">Edite Maria de Jesus</div>
-                <div class="datas">01/10/1934 – 21/01/1988</div>
+                <div class="info">01/10/1934 – 21/01/1988</div>
               </a>
             </div>
-            <div class="ligacao-casal"></div>
-            <div class="descida"></div>
           </div>
         </div>
 
-        <!-- VOCÊ -->
-        <div class="nivel">
-          <a class="card-pessoa feminino" href="#francisca">
-            <div class="avatar">FS</div>
-            <div class="nome">Francisca das Chagas Menezes Sugimoto</div>
-            <div class="datas">Descendente das famílias Teles de Menezes, Marques de Souza e Lima</div>
-          </a>
+        <div class="rotulo-geracao">Filhos / família próxima</div>
+        <div class="geracao">
+          <div class="pessoa-bloco">
+            <a class="mini-card feminino" href="#francisca">
+              <div class="sigla">FS</div>
+              <div class="nome">Francisca das Chagas Menezes Sugimoto</div>
+              <div class="info">Filha do casal</div>
+            </a>
+          </div>
+
+          <!-- DUPLIQUE ESTES BLOCOS PARA CADA IRMÃO -->
+          <div class="pessoa-bloco">
+            <a class="mini-card masculino" href="#irmao-modelo">
+              <div class="sigla">IM</div>
+              <div class="nome">[Nome do irmão]</div>
+              <div class="info">Adicionar cônjuge e filhos depois</div>
+            </a>
+          </div>
+
+          <div class="pessoa-bloco">
+            <a class="mini-card feminino" href="#irma-modelo">
+              <div class="sigla">IR</div>
+              <div class="nome">[Nome da irmã]</div>
+              <div class="info">Adicionar cônjuge e filhos depois</div>
+            </a>
+          </div>
         </div>
-
       </div>
-    </div>
+    </section>
 
-    <hr class="linha-suave">
-    <div class="secao">
+    <hr class="linha-suave" />
+
+    <!-- LINHAGEM TEXTUAL -->
+    <section class="linhagem">
+      <h2>📖 Linhagem textual das gerações anteriores</h2>
+
+      <div class="item-linhagem nivel-1">
+        <span class="codigo">1.</span>
+        <span class="nome-linhagem">Francisca das Chagas Menezes Sugimoto</span>
+        — filha de <strong>Antônio Teles de Menezes</strong> e <strong>Edite Maria de Jesus</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-2">
+        <span class="codigo">1.1.</span>
+        <span class="nome-linhagem">Antônio Teles de Menezes</span>
+        — filho de <strong>Paulo Lima de Menezes</strong> e <strong>Raimunda Ermina de Menezes</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-2">
+        <span class="codigo">1.2.</span>
+        <span class="nome-linhagem">Edite Maria de Jesus</span>
+        — filha de <strong>Antônio Zeferino Marques de Souza</strong> e <strong>Rosa Maria de Jesus</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-3">
+        <span class="codigo">1.1.1.</span>
+        <span class="nome-linhagem">Paulo Lima de Menezes</span>
+        — filho de <strong>Joaquim Tolentino de Menezes</strong> e <strong>Maria José de Lima</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-3">
+        <span class="codigo">1.2.1.</span>
+        <span class="nome-linhagem">Antônio Zeferino Marques de Souza</span>
+        — filho de <strong>Zeferino Marques de Souza</strong> e <strong>Maria Celestina de Lima</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-3">
+        <span class="codigo">1.2.2.</span>
+        <span class="nome-linhagem">Rosa Maria de Jesus</span>
+        — filha de <strong>João Marques de Souza</strong> e <strong>Mariana Maria de Jesus</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-4">
+        <span class="codigo">1.1.1.1.</span>
+        <span class="nome-linhagem">Joaquim Tolentino de Menezes</span>
+        — filho de <strong>José Francisco de Menezes</strong> e <strong>Maria do Livramento</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-4">
+        <span class="codigo">1.1.1.2.</span>
+        <span class="nome-linhagem">Maria José de Lima</span>
+        — filha de <strong>Domingos de Lima de Medeiros</strong> e <strong>Rosa Francisca de Menezes</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-4">
+        <span class="codigo">1.2.1.1.</span>
+        <span class="nome-linhagem">Zeferino Marques de Souza</span>
+        — filho de <strong>Antônio Marques de Souza</strong> e <strong>Floripes Maria da Encarnação</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-4">
+        <span class="codigo">1.2.2.1.</span>
+        <span class="nome-linhagem">João Marques de Souza</span>
+        — irmão de Zeferino Marques de Souza, também filho de <strong>Antônio Marques de Souza</strong> e <strong>Floripes Maria da Encarnação</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-5">
+        <span class="codigo">1.2.1.1.1.</span>
+        <span class="nome-linhagem">Antônio Marques de Souza</span>
+        — filho de <strong>José Marques de Souza</strong> e <strong>Maria Joaquina de Souza</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-5">
+        <span class="codigo">1.2.1.1.2.</span>
+        <span class="nome-linhagem">Floripes Maria da Encarnação</span>
+        — filha de <strong>Antônio Manoel do Espírito Santo</strong> e <strong>Anna Joaquina</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-6">
+        <span class="codigo">1.2.1.1.1.1.</span>
+        <span class="nome-linhagem">José Marques de Souza</span>
+        — filho de <strong>Joaquim Marques da Costa</strong> e <strong>Josefa Maria de Souza</strong>.
+      </div>
+
+      <div class="item-linhagem nivel-6">
+        <span class="codigo">1.2.1.1.1.2.</span>
+        <span class="nome-linhagem">Maria Joaquina de Souza</span>
+        — tetravó materna.
+      </div>
+
+      <div class="caixa-observacao">
+        Esta parte textual pode crescer à medida que novos nomes forem confirmados. Ela é ideal para gerações antigas, porque evita que os cards fiquem embaralhados na tela.
+      </div>
+    </section>
+
+    <hr class="linha-suave" />
+
+    <!-- DETALHES -->
+    <section class="secao">
       <h2>🧬 Detalhes dos cards</h2>
 
       <div class="grade-detalhes">
-<div class="bloco-detalhe" id="quintiliano">
-  <h3>Quintiliano Marques da Costa</h3>
-  <p>Hexavô materno.</p>
-  <p>Pai de Joaquim Marques da Costa.</p>
-  <p>Identificado no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
-  <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
-</div>
 
-<div class="bloco-detalhe" id="ermina">
-  <h3>Ermina de Souza</h3>
-  <p>Hexavó materna.</p>
-  <p>Mãe de Joaquim Marques da Costa.</p>
-  <p>Identificada no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
-  <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
-</div>
+        <div class="bloco-detalhe" id="quintiliano">
+          <h3>Quintiliano Marques da Costa</h3>
+          <p>Hexavô materno.</p>
+          <p>Pai de Joaquim Marques da Costa.</p>
+          <p>Identificado no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
 
-<div class="bloco-detalhe" id="ricardo-rocha">
-  <h3>Ricardo da Rocha</h3>
-  <p>Hexavô materno.</p>
-  <p>Pai de Josefa Maria de Souza.</p>
-  <p>Identificado no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
-  <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
-</div>
+        <div class="bloco-detalhe" id="ermina">
+          <h3>Ermina de Souza</h3>
+          <p>Hexavó materna.</p>
+          <p>Mãe de Joaquim Marques da Costa.</p>
+          <p>Identificada no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
 
-<div class="bloco-detalhe" id="maria-carneira">
-  <h3>Maria Carneira</h3>
-  <p>Hexavó materna.</p>
-  <p>Mãe de Josefa Maria de Souza.</p>
-  <p>Identificada no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
-  <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
-</div>
+        <div class="bloco-detalhe" id="ricardo-rocha">
+          <h3>Ricardo da Rocha</h3>
+          <p>Hexavô materno.</p>
+          <p>Pai de Josefa Maria de Souza.</p>
+          <p>Identificado no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="maria-carneira">
+          <h3>Maria Carneira</h3>
+          <p>Hexavó materna.</p>
+          <p>Mãe de Josefa Maria de Souza.</p>
+          <p>Identificada no registro matrimonial de Joaquim Marques da Costa e Josefa Maria de Souza, datado de 09/01/1838, na Matriz da Vila do Sobral.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
         <div class="bloco-detalhe" id="francisca">
           <h3>Francisca das Chagas Menezes Sugimoto</h3>
           <p>Descendente das famílias Teles de Menezes, Marques de Souza e Lima.</p>
@@ -539,204 +777,28 @@
           <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
         </div>
 
-        <div class="bloco-detalhe" id="em-pesquisa-1">
-          <h3>Ramo em pesquisa</h3>
-          <p>Este espaço foi reservado para continuar a expansão da árvore genealógica com novos nomes confirmados documentalmente.</p>
-          <p>Depois, podemos substituir estes cards provisórios pelos antepassados corretos.</p>
+        <!-- MODELOS PARA IRMÃOS -->
+        <div class="bloco-detalhe" id="irmao-modelo">
+          <h3>[Nome do irmão]</h3>
+          <p>Filho(a) de Antônio Teles de Menezes e Edite Maria de Jesus.</p>
+          <p>Aqui você pode colocar cônjuge, filhos e um pequeno texto de memória.</p>
+          <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
+        </div>
+
+        <div class="bloco-detalhe" id="irma-modelo">
+          <h3>[Nome da irmã]</h3>
+          <p>Filha de Antônio Teles de Menezes e Edite Maria de Jesus.</p>
+          <p>Aqui você pode colocar cônjuge, filhos e uma breve história.</p>
           <a class="voltar-topo" href="#topo">↑ Voltar para a árvore</a>
         </div>
 
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <footer>
     Site da família em construção com carinho, memória e pesquisa genealógica.
   </footer>
 
-  <section class="container">
-    <h2 class="geracao-titulo">Geração dos Avós e Bisavós</h2>
-<section class="container">
-  <h2 class="geracao-titulo">Geração dos Avós e Bisavós – Linha Paterna 📜</h2>
-
-  <div class="card">
-    <h3>Paulo Lima de Menezes 📜</h3>
-    <p>Avô paterno.</p>
-    <p>Filho de Joaquim Tolentino de Menezes 📜 e Maria José de Lima 📜.</p>
-  </div>
-
-  <div class="card">
-    <h3>Raimunda Ermina de Menezes 📜</h3>
-    <p>Avó paterna.</p>
-    <p>Esposa de Paulo Lima de Menezes 📜.</p>
-  </div>
-
-  <div class="card">
-    <h3>Joaquim Tolentino de Menezes 📜</h3>
-    <p>Bisavô paterno.</p>
-    <p>Filho de José Francisco de Menezes 📜 e Maria do Livramento 📜.</p>
-  </div>
-
-  <div class="card">
-    <h3>Maria José de Lima 📜</h3>
-    <p>Bisavó paterna.</p>
-    <p>Filha de Domingos de Lima de Medeiros 📜 e Rosa Francisca de Menezes 📜.</p>
-  </div>
-</section>
-    <div class="card">
-      <h3>Antônio Zeferino de Souza 📜</h3>
-      <p>Avô materno.</p>
-      <p>Casado com Rosa Maria de Jesus 📜.</p>
-      <p>Filho de Zeferino Marques de Souza 📜 e Maria Celestina de Lima 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Rosa Maria de Jesus 📜</h3>
-      <p>Avó materna.</p>
-      <p>Filha de João Marques de Souza 📜 e Mariana Maria de Jesus 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Zeferino Marques de Souza 📜</h3>
-      <p>Bisavô materno.</p>
-      <p>Esposo de Maria Celestina de Lima 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Maria Celestina de Lima 📜</h3>
-      <p>Bisavó materna.</p>
-      <p>Esposa de Zeferino Marques de Souza 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>João Marques de Souza 📜</h3>
-      <p>Bisavô materno.</p>
-      <p>Irmão de Zeferino Marques de Souza.</p>
-      <p>Esposo de Mariana Maria de Jesus 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Mariana Maria de Jesus 📜</h3>
-      <p>Bisavó materna.</p>
-      <p>Esposa de João Marques de Souza 📜.</p>
-    </div>
-  </section>
-
-  <section class="container">
-    <h2 class="geracao-titulo">Geração dos Trisavós</h2>
-
-    <div class="card">
-      <h3>Antônio Marques de Souza 📜</h3>
-      <p>Trisavô materno.</p>
-      <p>Casado com Floripes Maria da Encarnação 📜.</p>
-      <p>Pai de Zeferino Marques de Souza 📜 e de João Marques de Souza 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Floripes Maria da Encarnação 📜</h3>
-      <p>Trisavó materna.</p>
-      <p>Esposa de Antônio Marques de Souza 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>José Francisco de Menezes 📜</h3>
-      <p>Trisavô paterno.</p>
-      <p>Casado com Maria do Livramento 📜.</p>
-      <p>Pai de Joaquim Tolentino de Menezes 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Maria do Livramento 📜</h3>
-      <p>Trisavó paterna.</p>
-      <p>Esposa de José Francisco de Menezes 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Domingos de Lima de Medeiros 📜</h3>
-      <p>Trisavô paterno.</p>
-      <p>Casado com Rosa Francisca de Menezes 📜.</p>
-      <p>Pai de Maria José de Lima 📜 e Mariana Francisca de Menezes 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Rosa Francisca de Menezes 📜</h3>
-      <p>Trisavó paterna.</p>
-      <p>Esposa de Domingos de Lima de Medeiros 📜.</p>
-    </div>
-  </section>
-
-  <section class="container">
-    <h2 class="geracao-titulo">Geração dos Tetravós</h2>
-
-    <div class="card">
-      <h3>José Marques de Souza 📜</h3>
-      <p>Tetravô materno.</p>
-      <p>Casado com Maria Joaquina de Souza 📜.</p>
-      <p>Filho de Joaquim Marques da Costa 📜 e Josefa Maria de Souza 📜.</p>
-      <p>Casamento registrado em 14/07/1846 na Matriz de Sobral.</p>
-    </div>
-
-    <div class="card">
-      <h3>Maria Joaquina de Souza 📜</h3>
-      <p>Tetravó materna.</p>
-      <p>Esposa de José Marques de Souza 📜.</p>
-      <p>Exposta em casa do falecido José Ignácio de Souza.</p>
-    </div>
-
-    <div class="card">
-      <h3>Antônio Manoel do Espírito Santo 📜</h3>
-      <p>Tetravô materno.</p>
-      <p>Pai de Floripes Maria da Encarnação 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Anna Joaquina 📜</h3>
-      <p>Tetravó materna.</p>
-      <p>Mãe de Floripes Maria da Encarnação 📜.</p>
-    </div>
-  </section>
-
-  <section class="container">
-    <h2 class="geracao-titulo">Geração dos Pentavós</h2>
-
-    <div class="card">
-      <h3>Joaquim Marques da Costa 📜</h3>
-      <p>Pentavô materno.</p>
-      <p>Pai de José Marques de Souza 📜.</p>
-    </div>
-
-    <div class="card">
-      <h3>Josefa Maria de Souza 📜</h3>
-      <p>Pentavó materna.</p>
-      <p>Mãe de José Marques de Souza 📜.</p>
-    </div>
-  </section>
-<section class="container">
-  <h2 class="geracao-titulo">Geração dos Hexavós 📜</h2>
-
-  <div class="card">
-    <h3>Quintiliano Marques da Costa 📜</h3>
-    <p>Hexavô materno.</p>
-    <p>Pai de Joaquim Marques da Costa 📜.</p>
-  </div>
-
-  <div class="card">
-    <h3>Ermina de Souza 📜</h3>
-    <p>Hexavó materna.</p>
-    <p>Mãe de Joaquim Marques da Costa 📜.</p>
-  </div>
-
-  <div class="card">
-    <h3>Ricardo da Rocha 📜</h3>
-    <p>Hexavô materno.</p>
-    <p>Pai de Josefa Maria de Souza 📜.</p>
-  </div>
-
-  <div class="card">
-    <h3>Maria Carneira 📜</h3>
-    <p>Hexavó materna.</p>
-    <p>Mãe de Josefa Maria de Souza 📜.</p>
-  </div>
-</section>
 </body>
 </html>
