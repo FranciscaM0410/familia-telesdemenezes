@@ -20,13 +20,13 @@
       background-attachment: fixed;
     }
 
-    header {
-      background: linear-gradient(rgba(90, 62, 54, 0.92), rgba(90, 62, 54, 0.92));
-      color: white;
-      text-align: center;
-      padding: 26px 16px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
-    }
+ header {
+  background: transparent;
+  color: #3e2f23;
+  text-align: center;
+  padding: 26px 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
 
     header h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: 34px; }
     .menu { margin-top: 18px; }
@@ -140,15 +140,41 @@
       .timeline-item::after { left: 21px; }
       .right { left: 0%; }
     }
+  /* ===== AJUSTE DO MENU ===== */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #A68A64;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #6F5A3E;
+    transform: scale(1.05);
+}
+
+.menu-btn.ativo {
+    background-color: #6F5A3E;
+}  
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Família Teles de Menezes e Marques de Souza</h1>
+    <h1>Antônio e Edite</h1>
     <div class="menu">
-      <a href="index.html" class="menu-btn ativo">Início</a>
-      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="index.html" class="menu-btn">Início</a>
+      <a href="pais.html" class="menu-btn ativo">Meus Pais</a>
       <a href="historia.html" class="menu-btn">História Familiar</a>
       <a href="genealogia.html" class="menu-btn">Genealogia</a>
       <a href="documentos.html" class="menu-btn">Documentos Históricos</a>
