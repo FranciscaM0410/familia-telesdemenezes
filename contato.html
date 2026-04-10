@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - Leões de Araquém</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #3e2f23;
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: transparent;
+      color: #3e2f23;
+      text-align: center;
+      padding: 26px 16px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+    }
+
+    .subtitulo {
+      margin-top: 10px;
+      color: #6b4f3a;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .menu-btn {
+      text-decoration: none;
+      color: white;
+      background-color: #A68A64;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .menu-btn:hover {
+      background-color: #6F5A3E;
+      transform: scale(1.05);
+    }
+
+    .menu-btn.ativo {
+      background-color: #6F5A3E;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 30px auto;
+      background: rgba(255, 248, 239, 0.95);
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #5a3e36;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .intro {
+      text-align: center;
+      color: #6b4f3a;
+      font-style: italic;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .bloco-contato {
+      background: #fffdf8;
+      border: 1px solid #d8c3a5;
+      border-left: 6px solid #c8a97e;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #5a3e36;
+      margin-bottom: -6px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccb79a;
+      border-radius: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 15px;
+      background: #fff;
+      color: #3e2f23;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    button {
+      align-self: flex-start;
+      background-color: #A68A64;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6F5A3E;
+      transform: scale(1.03);
+    }
+
+    .observacao {
+      margin-top: 22px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #6b4f3a;
+      background: rgba(255,255,255,0.65);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b4f3a;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        margin: 20px 12px;
+        padding: 22px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      .subtitulo {
+        font-size: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contato da Família</h1>
+    <div class="subtitulo">
+      Um espaço para mensagens, sugestões, relatos e envio de lembranças da família.
+    </div>
+
+    <div class="menu">
+      <a href="index.html" class="menu-btn">Início</a>
+      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="historia.html" class="menu-btn">História Familiar</a>
+      <a href="genealogia.html" class="menu-btn">Genealogia</a>
+      <a href="documentos.html" class="menu-btn">Documentos Históricos</a>
+      <a href="grande-familia.html" class="menu-btn">Grande Família</a>
+      <a href="curiosidades.html" class="menu-btn">Curiosidades</a>
+      <a href="galeria.html" class="menu-btn">Galeria</a>
+      <a href="contato.html" class="menu-btn ativo">Contato</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>📩 Entre em contato</h2>
+    <p class="intro">
+      Este espaço foi pensado para que familiares e visitantes possam deixar mensagens,
+      opiniões sobre os encontros da família, sugestões e também registrar lembranças especiais.
+    </p>
+
+    <div class="bloco-contato">
+      <form>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome">
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Seu e-mail">
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem, sugestão ou lembrança da família"></textarea>
+
+        <button type="submit">Enviar mensagem</button>
+      </form>
+
+      <div class="observacao">
+        Por enquanto, esta página funciona como um espaço visual de contato. Depois, podemos deixá-la ainda mais completa, com envio real de mensagens, opinião sobre encontros da família e até orientação para recebimento de fotos e relatos.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Site da família em construção com carinho, memória e pesquisa genealógica.
+  </footer>
+
+</body>
+</html>
