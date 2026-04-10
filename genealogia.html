@@ -26,17 +26,20 @@
     body{
       margin:0;
       font-family:'Open Sans', sans-serif;
-      color:var(--texto);
-      background:
-        linear-gradient(rgba(246,241,234,0.92), rgba(246,241,234,0.92)),
-        url('familia-antiga.jpeg') center top / cover no-repeat fixed;
+      color:#3e2f23;
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
 
     header{
-      background:linear-gradient(135deg, #efe4d7, #f8f2eb);
-      border-bottom:1px solid #e1cdb5;
-      padding:28px 20px 20px;
-      text-align:center;
+      background: transparent;
+      color: #3e2f23;
+      text-align: center;
+      padding: 26px 16px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
     }
 
     header h1{
@@ -53,7 +56,7 @@
     }
 
     .menu{
-      margin-top:24px;
+      margin-top: 18px;
       display:flex;
       flex-wrap:wrap;
       justify-content:center;
@@ -61,18 +64,23 @@
     }
 
     .menu-btn{
+      display: inline-block;
       text-decoration:none;
-      background:#b78d65;
-      color:#fff;
-      padding:10px 16px;
-      border-radius:10px;
+      color:white;
+      background-color:#A68A64;
+      padding:10px 18px;
+      border-radius:8px;
+      font-size:16px;
       font-weight:600;
-      transition:0.2s ease;
+      transition:0.3s;
     }
 
-    .menu-btn:hover,
+    .menu-btn:hover{
+      background:#6F5A3E;
+    }
+
     .menu-btn.ativo{
-      background:var(--marrom);
+      background-color:#6F5A3E;
     }
 
     .container{
@@ -103,7 +111,6 @@
       margin:42px 0;
     }
 
-    /* ÁRVORE */
     .arvore-wrapper{
       overflow-x:auto;
       padding-bottom:20px;
@@ -216,7 +223,6 @@
     .largura-4{ width:1190px; }
     .largura-14{ width:1410px; }
 
-    /* TEXTO */
     .linhagem{
       max-width:1080px;
       margin:0 auto;
@@ -289,12 +295,8 @@
 <body id="topo">
 
   <header>
-    <h1>Família Teles de Menezes e Marques de Souza</h1>
-    <div class="subtitulo">
-      Memória, origem e história de uma família<br>
-      <em>Uma trajetória marcada por fé, luta, amor e união ao longo das gerações.</em>
-    </div>
-
+    <h1>Genealogia Familiar</h1>
+    
     <div class="menu">
       <a href="index.html" class="menu-btn">Início</a>
       <a href="pais.html" class="menu-btn">Meus Pais</a>
@@ -302,6 +304,8 @@
       <a href="genealogia.html" class="menu-btn ativo">Genealogia</a>
       <a href="documentos.html" class="menu-btn">Documentos Históricos</a>
       <a href="grande-familia.html" class="menu-btn">Grande Família</a>
+      <a href="curiosidades.html" class="menu-btn">Curiosidades</a>
+      <a href="galeria.html" class="menu-btn ativo">Galeria</a>
     </div>
   </header>
 
