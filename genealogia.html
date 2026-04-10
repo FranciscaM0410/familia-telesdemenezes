@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -673,4 +674,680 @@
     Site da família em construção com carinho, memória e pesquisa genealógica.
   </footer>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genealogia da Família</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --fundo:#f6f1ea;
+      --fundo-card:rgba(255,250,244,0.95);
+      --texto:#4b3d35;
+      --marrom:#7b5a45;
+      --marrom-escuro:#5b4030;
+      --borda:#d8be9d;
+      --dourado:#c9a97d;
+      --sombra:0 4px 14px rgba(0,0,0,0.08);
+      --linha:#b5aca2;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family:'Open Sans', sans-serif;
+      color:#3e2f23;
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header{
+      background: transparent;
+      color: #3e2f23;
+      text-align: center;
+      padding: 26px 16px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    header h1{
+      margin:0;
+      font-family:'Playfair Display', serif;
+      color:var(--marrom-escuro);
+      font-size:2.2rem;
+    }
+
+    .subtitulo{
+      margin-top:10px;
+      color:#6d5646;
+      font-size:1rem;
+    }
+
+    .menu{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .menu-btn{
+      display: inline-block;
+      text-decoration:none;
+      color:white;
+      background-color:#A68A64;
+      padding:10px 18px;
+      border-radius:8px;
+      font-size:16px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .menu-btn:hover{
+      background:#6F5A3E;
+    }
+
+    .menu-btn.ativo{
+      background-color:#6F5A3E;
+    }
+
+    .container{
+      max-width:1580px;
+      margin:0 auto;
+      padding:28px 18px 40px;
+    }
+
+    h2,h3{
+      font-family:'Playfair Display', serif;
+      color:var(--marrom-escuro);
+    }
+
+    .observacao{
+      background:rgba(255,249,242,0.96);
+      border:1px solid #e3ccb2;
+      border-left:6px solid var(--dourado);
+      padding:20px;
+      border-radius:14px;
+      margin-bottom:30px;
+      box-shadow:var(--sombra);
+    }
+
+    .linha-suave{
+      border:none;
+      height:1px;
+      background:linear-gradient(to right, transparent, #ceb190, transparent);
+      margin:42px 0;
+    }
+
+    .arvore-wrapper{
+      overflow-x:auto;
+      padding-bottom:20px;
+    }
+
+    .arvore{
+      min-width:1500px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+    }
+
+    .rotulo-geracao{
+      font-weight:700;
+      color:var(--marrom);
+      font-size:1.05rem;
+      margin-top:6px;
+    }
+
+    .geracao{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      gap:34px;
+      align-items:flex-start;
+      flex-wrap:nowrap;
+    }
+
+    .casal-bloco{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      min-width:280px;
+      position:relative;
+    }
+
+    .casal{
+      display:flex;
+      gap:12px;
+      align-items:stretch;
+      justify-content:center;
+    }
+
+    .mini-card{
+      width:170px;
+      min-height:112px;
+      background:var(--fundo-card);
+      border:1px solid var(--borda);
+      border-radius:14px;
+      box-shadow:var(--sombra);
+      text-decoration:none;
+      color:var(--texto);
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      transition:transform 0.15s ease;
+      text-align:center;
+    }
+
+    .mini-card:hover{
+      transform:translateY(-2px);
+    }
+
+    .mini-card.masculino{ border-top:5px solid #79b8d8; }
+    .mini-card.feminino{ border-top:5px solid #d88aa2; }
+
+    .sigla{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:#e9d8c8;
+      color:var(--marrom-escuro);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      margin:0 auto 8px;
+      font-size:0.92rem;
+    }
+
+    .nome{
+      font-family:'Playfair Display', serif;
+      font-size:0.98rem;
+      font-weight:700;
+      line-height:1.25;
+      margin-bottom:4px;
+    }
+
+    .info{
+      font-size:0.82rem;
+      color:#71594b;
+    }
+
+    .ligacao-vertical{
+      width:2px;
+      height:24px;
+      background:var(--linha);
+      margin:0 auto;
+    }
+
+    .ligacao-horizontal{
+      height:2px;
+      background:var(--linha);
+      margin:0 auto;
+    }
+
+    .largura-2{ width:210px; }
+    .largura-4{ width:1190px; }
+    .largura-14{ width:1410px; }
+
+    .linhagem{
+      max-width:1080px;
+      margin:0 auto;
+      background:rgba(252,248,242,0.97);
+      border:1px solid var(--borda);
+      border-radius:18px;
+      padding:28px 24px;
+      box-shadow:var(--sombra);
+    }
+
+    .linhagem h2{
+      text-align:center;
+      margin-top:0;
+      margin-bottom:24px;
+    }
+
+    .bloco-textual{
+      margin-bottom:28px;
+    }
+
+    .bloco-textual h3{
+      margin-bottom:10px;
+      border-bottom:1px solid #dcc2a1;
+      padding-bottom:6px;
+    }
+
+    .entrada{
+      margin:10px 0;
+      padding:10px 14px;
+      background:rgba(255,255,255,0.70);
+      border-left:4px solid var(--dourado);
+      border-radius:10px;
+      line-height:1.8;
+    }
+
+    .rec1{ margin-left:0; }
+    .rec2{ margin-left:22px; }
+    .rec3{ margin-left:44px; }
+    .rec4{ margin-left:66px; }
+    .rec5{ margin-left:88px; }
+
+    .num{
+      font-weight:700;
+      color:var(--marrom);
+    }
+
+    .nome-texto{
+      font-weight:700;
+      font-family:'Playfair Display', serif;
+      color:var(--marrom-escuro);
+    }
+
+    footer{
+      text-align:center;
+      padding:22px;
+      color:#6f594d;
+      font-size:0.95rem;
+    }
+
+    @media (max-width:900px){
+      header h1{ font-size:1.8rem; }
+      .linhagem{ padding:22px 16px; }
+      .rec2{ margin-left:14px; }
+      .rec3{ margin-left:28px; }
+      .rec4{ margin-left:42px; }
+      .rec5{ margin-left:56px; }
+    }
+  </style>
+</head>
+<body id="topo">
+
+  <header>
+    <h1>Genealogia Familiar</h1>
+    
+    <div class="menu">
+      <a href="index.html" class="menu-btn">Início</a>
+      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="historia.html" class="menu-btn">História Familiar</a>
+      <a href="genealogia.html" class="menu-btn ativo">Genealogia</a>
+      <a href="documentos.html" class="menu-btn">Documentos Históricos</a>
+      <a href="grande-familia.html" class="menu-btn">Grande Família</a>
+      <a href="curiosidades.html" class="menu-btn">Curiosidades</a>
+      <a href="galeria.html" class="menu-btn ativo">Galeria</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>🌳 Árvore Genealógica</h2>
+
+    <div class="observacao">
+      <h2>📜 Nota importante</h2>
+      <p>
+        Esta página reúne uma árvore visual resumida do núcleo familiar e, abaixo,
+        uma apresentação textual ampliada da linhagem, integrando os ramos Menezes,
+        Lima, Marques de Souza e Rodrigues Lima, com base nas informações já reunidas
+        em documentos, livros e registros familiares.
+      </p>
+    </div>
+
+    <section class="arvore-wrapper">
+      <div class="arvore">
+
+        <div class="rotulo-geracao">Bisavós</div>
+
+        <div class="geracao">
+          <div class="casal-bloco">
+            <div class="casal">
+              <div class="mini-card masculino">
+                <div class="sigla">JT</div>
+                <div class="nome">Joaquim Tolentino de Menezes</div>
+                <div class="info">Bisavô paterno</div>
+              </div>
+              <div class="mini-card feminino">
+                <div class="sigla">ML</div>
+                <div class="nome">Maria José de Lima</div>
+                <div class="info">Bisavó paterna</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="casal-bloco">
+            <div class="casal">
+              <div class="mini-card masculino">
+                <div class="sigla">JR</div>
+                <div class="nome">Joaquim Raimundo de Souza</div>
+                <div class="info">Bisavô paterno</div>
+              </div>
+              <div class="mini-card feminino">
+                <div class="sigla">TM</div>
+                <div class="nome">Teodora Maria de Jesus</div>
+                <div class="info">Bisavó paterna</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="casal-bloco">
+            <div class="casal">
+              <div class="mini-card masculino">
+                <div class="sigla">ZM</div>
+                <div class="nome">Zeferino Marques de Souza</div>
+                <div class="info">Bisavô materno</div>
+              </div>
+              <div class="mini-card feminino">
+                <div class="sigla">MC</div>
+                <div class="nome">Maria Celestina de Lima</div>
+                <div class="info">Bisavó materna</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="casal-bloco">
+            <div class="casal">
+              <div class="mini-card masculino">
+                <div class="sigla">JM</div>
+                <div class="nome">João Marques de Souza</div>
+                <div class="info">Bisavô materno</div>
+              </div>
+              <div class="mini-card feminino">
+                <div class="sigla">MJ</div>
+                <div class="nome">Mariana Maria de Jesus</div>
+                <div class="info">Bisavó materna</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ligacao-vertical"></div>
+        <div class="ligacao-horizontal largura-4"></div>
+        <div class="ligacao-vertical"></div>
+
+        <div class="rotulo-geracao">Avós</div>
+        <div class="geracao">
+          <div class="casal-bloco">
+            <div class="casal">
+              <div class="mini-card masculino">
+                <div class="sigla">PL</div>
+                <div class="nome">Paulo Lima de Menezes</div>
+                <div class="info">Avô paterno</div>
+              </div>
+              <div class="mini-card feminino">
+                <div class="sigla">RH</div>
+                <div class="nome">Raimunda Hermina de Souza</div>
+                <div class="info">Avó paterna</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="casal-bloco">
+            <div class="casal">
+              <div class="mini-card masculino">
+                <div class="sigla">AZ</div>
+                <div class="nome">Antônio Zeferino Marques de Souza</div>
+                <div class="info">Avô materno</div>
+              </div>
+              <div class="mini-card feminino">
+                <div class="sigla">RM</div>
+                <div class="nome">Rosa Maria de Jesus</div>
+                <div class="info">Avó materna</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ligacao-vertical"></div>
+        <div class="ligacao-horizontal largura-2"></div>
+        <div class="ligacao-vertical"></div>
+
+        <div class="rotulo-geracao">Pais</div>
+        <div class="geracao">
+          <div class="casal-bloco">
+            <div class="casal">
+              <div class="mini-card masculino">
+                <div class="sigla">AT</div>
+                <div class="nome">Antônio Teles de Menezes</div>
+                <div class="info">1931–1988</div>
+              </div>
+              <div class="mini-card feminino">
+                <div class="sigla">EM</div>
+                <div class="nome">Edite Maria de Jesus</div>
+                <div class="info">1934–1988</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ligacao-vertical"></div>
+        <div class="ligacao-horizontal largura-14"></div>
+        <div class="ligacao-vertical"></div>
+
+        <div class="rotulo-geracao">Filhos</div>
+        <div class="geracao">
+          <div class="mini-card masculino"><div class="sigla">ML</div><div class="nome">Matias Lima de Menezes</div><div class="info">1950 – vivo</div></div>
+          <div class="mini-card feminino"><div class="sigla">AL</div><div class="nome">Áurea Lima de Menezes</div><div class="info">1951 – 1956</div></div>
+          <div class="mini-card feminino"><div class="sigla">RL</div><div class="nome">Roza Lima de Menezes</div><div class="info">1956 – viva</div></div>
+          <div class="mini-card masculino"><div class="sigla">PN</div><div class="nome">Paulo Antônio Neto</div><div class="info">1957 – vivo</div></div>
+          <div class="mini-card masculino"><div class="sigla">AM</div><div class="nome">Antônio Menezes</div><div class="info">1958 – vivo</div></div>
+          <div class="mini-card masculino"><div class="sigla">OT</div><div class="nome">Orlando Teles de Menezes</div><div class="info">1960 – vivo</div></div>
+          <div class="mini-card masculino"><div class="sigla">AL</div><div class="nome">Alfredo Lima de Menezes</div><div class="info">1961 – 1966</div></div>
+        </div>
+
+        <div class="geracao">
+          <div class="mini-card feminino"><div class="sigla">RC</div><div class="nome">Raimunda Teles de Menezes Cardoso</div><div class="info">1963 – viva</div></div>
+          <div class="mini-card feminino"><div class="sigla">FT</div><div class="nome">Francisca Teles de Menezes</div><div class="info">1962 – 1967</div></div>
+          <div class="mini-card feminino"><div class="sigla">FM</div><div class="nome">Maria de Fátima Menezes Silva</div><div class="info">1967 – viva</div></div>
+          <div class="mini-card masculino"><div class="sigla">CL</div><div class="nome">Cláudio Lima de Menezes</div><div class="info">1968 – vivo</div></div>
+          <div class="mini-card feminino"><div class="sigla">FC</div><div class="nome">Francisca das Chagas Menezes</div><div class="info">1969 – viva</div></div>
+          <div class="mini-card masculino"><div class="sigla">CM</div><div class="nome">Clóves Lima de Menezes</div><div class="info">1971 – vivo</div></div>
+          <div class="mini-card masculino"><div class="sigla">GM</div><div class="nome">Gleisson Teles de Menezes</div><div class="info">1973 – vivo</div></div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="linha-suave" />
+
+    <section class="linhagem">
+      <h2>📖 Linhagem da família</h2>
+
+      <div class="bloco-textual">
+        <h3>Núcleo principal</h3>
+
+        <div class="entrada rec1">
+          <span class="num">1.</span> <span class="nome-texto">Antônio Teles de Menezes</span>,
+          filho de <strong>Paulo Lima de Menezes</strong> e <strong>Raimunda Hermina de Souza</strong>,
+          casou-se com <span class="nome-texto">Edite Maria de Jesus</span>, filha de
+          <strong>Antônio Zeferino Marques de Souza</strong> e <strong>Rosa Maria de Jesus</strong>.
+          Tiveram os filhos:
+        </div>
+
+        <div class="entrada rec2">
+          <span class="num">1.1.</span> Matias Lima de Menezes<br>
+          <span class="num">1.2.</span> Áurea Lima de Menezes<br>
+          <span class="num">1.3.</span> Roza Lima de Menezes<br>
+          <span class="num">1.4.</span> Paulo Antônio Neto<br>
+          <span class="num">1.5.</span> Antônio Menezes<br>
+          <span class="num">1.6.</span> Orlando Teles de Menezes<br>
+          <span class="num">1.7.</span> Alfredo Lima de Menezes<br>
+          <span class="num">1.8.</span> Raimunda Teles de Menezes Cardoso<br>
+          <span class="num">1.9.</span> Francisca Teles de Menezes<br>
+          <span class="num">1.10.</span> Maria de Fátima Menezes Silva<br>
+          <span class="num">1.11.</span> Cláudio Lima de Menezes<br>
+          <span class="num">1.12.</span> Francisca das Chagas Menezes<br>
+          <span class="num">1.13.</span> Clóves Lima de Menezes<br>
+          <span class="num">1.14.</span> Gleisson Teles de Menezes
+        </div>
+      </div>
+
+      <div class="bloco-textual">
+        <h3>Ascendência paterna</h3>
+
+        <div class="entrada rec1">
+          <span class="num">2.</span> <span class="nome-texto">Paulo Lima de Menezes</span>,
+          também identificado em alguns registros familiares como Paulo Teles de Menezes,
+          foi filho de <strong>Joaquim Tolentino de Menezes</strong> e <strong>Maria José de Lima</strong>.
+        </div>
+
+        <div class="entrada rec2">
+          <span class="num">2.1.</span> Irmãos de Paulo Lima de Menezes já identificados:
+          Genovina Maria de Menezes, Francisco Teles de Menezes, Rosa Lima de Menezes,
+          Maria de Lourdes de Menezes, Philomena Lima de Menezes, João Evangelista de Menezes,
+          José Tolentino de Menezes, Matias Teles de Menezes, Donatília Lima de Menezes,
+          Pedro Teles de Menezes, Paula de Menezes, Emília Lima de Menezes e
+          Alzira Teles de Menezes.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">3.</span> <span class="nome-texto">Raimunda Hermina de Souza</span>
+          foi filha de <strong>Joaquim Raimundo de Souza</strong> e <strong>Teodora Maria de Jesus</strong>.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">4.</span> <span class="nome-texto">Joaquim Tolentino de Menezes</span>
+          foi filho de <strong>José Francisco de Menezes</strong> e <strong>Maria do Livramento</strong>.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">5.</span> <span class="nome-texto">Maria José de Lima</span>
+          foi filha de <strong>Domingos de Lima de Medeiros</strong> e <strong>Rosa Francisca de Menezes</strong>.
+        </div>
+      </div>
+
+      <div class="bloco-textual">
+        <h3>Ascendência materna</h3>
+
+        <div class="entrada rec1">
+          <span class="num">6.</span> <span class="nome-texto">Antônio Zeferino Marques de Souza</span>
+          foi filho de <strong>Zeferino Marques de Souza</strong> e <strong>Maria Celestina de Lima</strong>.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">7.</span> <span class="nome-texto">Rosa Maria de Jesus</span>
+          foi filha de <strong>João Marques de Souza</strong> e <strong>Mariana Maria de Jesus</strong>.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">8.</span> <span class="nome-texto">Zeferino Marques de Souza</span>
+          foi filho de <strong>Antônio Marques de Souza</strong> e
+          <strong>Floripes Maria da Encarnação</strong>.
+        </div>
+
+        <div class="entrada rec2">
+          <span class="num">8.1.</span> Filhos de Zeferino Marques de Souza e Maria Celestina de Lima
+          já identificados: Maria Branca, Gregório Zeferino de Souza, Servigina,
+          Antônio Zeferino Marques de Souza, Inácio Raimundo Marques, Pedro Zeferino Marques,
+          Fulgência, Quintino Marques de Souza e João Marques de Souza.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">9.</span> <span class="nome-texto">João Marques de Souza</span>,
+          irmão de Zeferino Marques de Souza, também foi filho de Antônio Marques de Souza e
+          Floripes Maria da Encarnação.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">10.</span> <span class="nome-texto">Antônio Marques de Souza</span>
+          foi filho de <strong>José Marques de Souza</strong> e <strong>Maria Joaquina de Souza</strong>.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">11.</span> <span class="nome-texto">José Marques de Souza</span>
+          foi filho de <strong>Joaquim Marques da Costa</strong> e <strong>Josefa Maria de Souza</strong>.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">12.</span> <span class="nome-texto">Floripes Maria da Encarnação</span>
+          foi filha de <strong>Antônio Manoel do Espírito Santo</strong> e <strong>Anna Joaquina</strong>.
+        </div>
+      </div>
+
+      <div class="bloco-textual">
+        <h3>Ramo Teles de Menezes, Rodrigues Lima e Marques de Souza</h3>
+
+        <div class="entrada rec1">
+          <span class="num">13.</span> <span class="nome-texto">José Teles de Menezes</span>,
+          filho de <strong>Antônio Irineu Teles da Frota</strong> e
+          <strong>Francisca Maria da Soledade Vasconcelos</strong>, casou-se com
+          <strong>Maria do Livramento Moreira</strong>.
+        </div>
+
+        <div class="entrada rec2">
+          <span class="num">13.1.</span> Filhos identificados de José Teles de Menezes e Maria do Livramento Moreira:
+          Maria Francisca de Menezes, Filomena Teles de Menezes, Florência Teles de Menezes,
+          Antônio Cristino de Menezes, Francisco Teles de Menezes, Joaquim Tolentino de Menezes,
+          João Batista Teles, Francisca Teles, Maria do Carmo Teles, Maria da Conceição Teles,
+          José Clarindo Teles, Isabel Teles, Maria José Teles e Jerônimo Teles.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">14.</span> <span class="nome-texto">Maria Francisca de Menezes</span>,
+          filha de José Teles de Menezes e Maria do Livramento Moreira, casou-se com
+          <strong>Antônio Rodrigues Lima</strong>.
+        </div>
+
+        <div class="entrada rec2">
+          <span class="num">14.1.</span> Filhos identificados de Maria Francisca de Menezes e Antônio Rodrigues Lima:
+          Maria Rodrigues, Francisco Antônio de Lima e José Antônio de Lima.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">15.</span> <span class="nome-texto">Maria Rodrigues (Maroca)</span>,
+          filha de Maria Francisca de Menezes e Antônio Rodrigues Lima, casou-se com
+          <strong>Antônio Zeferino Marques de Souza</strong>.
+        </div>
+
+        <div class="entrada rec2">
+          <span class="num">15.1.</span> Filhos identificados de Maria Rodrigues e Antônio Zeferino Marques de Souza:
+          Gregório Marques de Souza, Maria de Lourdes Marques de Souza, Sergina Marques de Souza,
+          Davi Marques de Souza, Antônio Marques de Souza, Floripes Marques de Souza,
+          Inácio Marques de Souza, Fulgência Marques de Souza, Pedro Marques de Souza,
+          Maria Maximina Marques de Souza, Sebastião Marques de Souza e Quintino Marques de Souza.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">16.</span> <span class="nome-texto">Francisco Antônio de Lima</span>,
+          irmão de Maria Rodrigues, casou-se com <strong>Inocência Ferreira</strong>.
+        </div>
+
+        <div class="entrada rec2">
+          <span class="num">16.1.</span> Descendência registrada de Francisco Antônio de Lima inclui:
+          Francisco Firmo de Lima, Maria de Lourdes Lima, Francisca Francalina Lima,
+          Manuel Francisco de Lima, Raimundo Francisco de Lima, Antônio Francisco de Lima,
+          Felipe Francisco de Lima, Gregório Francisco de Lima, Antônio Maria de Lima,
+          Joaquina Francisco de Lima, Maria do Patrocínio de Lima, José Francisco de Lima e
+          Luciano Francisco Lima.
+        </div>
+
+        <div class="entrada rec1">
+          <span class="num">17.</span> <span class="nome-texto">José Antônio de Lima</span>,
+          também irmão de Maria Rodrigues, casou-se com <strong>Francisca Ferreira Lima</strong>.
+        </div>
+      </div>
+
+      <div class="bloco-textual">
+        <h3>Observação sobre a pesquisa</h3>
+
+        <div class="entrada rec1">
+          Esta página reúne apenas o que já está mais consistente entre as capturas da árvore,
+          o código anterior e os trechos documentais enviados. Ela pode ser ampliada aos poucos
+          com páginas próprias para ramos específicos, fotografias, documentos transcritos e notas
+          explicativas.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Site da família em construção com carinho, memória e pesquisa genealógica.
+  </footer>
+</body>
+>>>>>>> aae1163667ba1cc9c399b15c4e749018281f718d
 </html>

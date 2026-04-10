@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -274,3 +275,280 @@ Essa travessia representa a força, a coragem e a união da nossa família — u
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>História da Família</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+ <style>
+    /* MANTENDO O SEU ESTILO BASE PARA CONSISTÊNCIA */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #3e2f23;
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+ header {
+  background: transparent;
+  color: #3e2f23;
+  text-align: center;
+  padding: 26px 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+    header h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: 34px; }
+    .menu { margin-top: 18px; }
+    .menu-btn {
+      display: inline-block;
+      margin: 6px 8px;
+      padding: 10px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      background: #d8b98c;
+      color: #5a3e36;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .menu-btn:hover { background: #ccb082; }
+    .menu-btn.ativo { background: #b9925f; color: white; }
+
+    .container {
+      max-width: 920px;
+      margin: 30px auto;
+      background: rgba(255, 248, 239, 0.95);
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    h2 { font-family: 'Playfair Display', serif; color: #5a3e36; text-align: center; margin-bottom: 30px; }
+    
+    /* ESTILOS DA LINHA DO TEMPO */
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #c8a97e;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: #fffdf8;
+      border: 4px solid #8b6f47;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left { left: 0; }
+    .right { left: 50%; }
+
+    .right::after { left: -10px; }
+
+    .content {
+      padding: 20px;
+      background-color: #fffdf8;
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid #d8c3a5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .content h3 {
+      font-family: 'Playfair Display', serif;
+      color: #5a3e36;
+      margin-top: 0;
+      border-bottom: 2px solid #d8b98c;
+      padding-bottom: 5px;
+    }
+
+    .content p {
+      line-height: 1.8;
+      font-size: 15px;
+      text-align: justify;
+      margin-bottom: 0;
+    }
+
+    /* ESTILO DAS IMAGENS ILUSTRATIVAS */
+    .img-ilustrativa {
+  max-width: 320px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #c8a97e;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+    footer { text-align: center; color: #6b4f3a; padding: 20px; font-size: 14px; margin-top: 30px;}
+
+    /* RESPONSIVIDADE PARA CELULAR */
+    @media screen and (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item::after { left: 21px; }
+      .right { left: 0%; }
+    }
+  /* ===== AJUSTE DO MENU ===== */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #A68A64;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #6F5A3E;
+    transform: scale(1.05);
+}
+
+.menu-btn.ativo {
+    background-color: #6F5A3E;
+}  
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>História da Família</h1>
+
+  <div class="menu">
+      <a href="index.html" class="menu-btn">Início</a>
+      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="historia.html" class="menu-btn ativo">História Familiar</a>
+      <a href="genealogia.html" class="menu-btn">Genealogia</a>
+      <a href="documentos.html" class="menu-btn">Documentos Históricos</a>
+      <a href="grande-familia.html" class="menu-btn">Grande Família</a>
+      <a href="curiosidades.html" class="menu-btn">Curiosidades</a>
+      <a href="galeria.html" class="menu-btn ativo">Galeria</a>
+    </div>
+</header>
+
+<div class="container">
+
+<hr>
+
+<h2>O Juiz do Povo e o Nome Santo</h2>
+
+<p style="text-align: center; font-style: italic;">
+Memória de Paulo Lima de Menezes, conhecido como Santo Teles
+</p>
+
+<p>
+Meu avô, <strong>Paulo Lima de Menezes</strong>, conhecido por todos como <strong>Santo Teles</strong>, foi uma figura marcante na história da nossa família e também na vida da comunidade onde viveu.
+</p>
+
+<p>
+Ele não era apenas juiz de paz. Era alguém que resolvia conflitos, aconselhava, ajudava as pessoas e, acima de tudo, promovia união. Em uma época em que as estruturas formais ainda estavam em formação, ele assumia responsabilidades que iam muito além do cargo, tornando-se uma referência de justiça e confiança.
+</p>
+
+<h3>A união das famílias</h3>
+
+<p>
+Entre suas muitas funções, uma das mais simbólicas era a realização de casamentos. Ele foi responsável por unir diversas famílias, celebrando momentos importantes na vida das pessoas. E, entre essas histórias, há uma que ficou marcada para sempre na nossa memória.
+</p>
+
+<p>
+Em um mesmo dia, ele realizou o casamento de duas irmãs. Uma delas era minha mãe, que se casou com meu pai — que era filho do próprio Santo Teles. A outra noiva, era irmã da minha mãe, tia Neza, que casou com meu tio Luiz Gonzaga. Era um tempo de simplicidade, mas também de laços profundos, onde a família se construía com coragem, fé e união.
+</p>
+
+<h3>O nome que virou identidade</h3>
+
+<p>
+Ao mesmo tempo, seu nome carregava um significado especial.
+</p>
+
+<p>
+Embora “Santo” nunca tenha sido seu sobrenome oficial, foi assim que ele passou a ser conhecido. Esse nome surgiu, segundo um dos relatos da família, ainda em seu nascimento. Ao ouvir alguém dizer que o bebê era feio, sua mãe, minha bisavó, respondeu com amor: “Ele não é feio, ele é lindo… é um santinho.” A partir daí, o apelido <em>Santinho</em> cresceu com ele, tornando-se depois “Santo”, e atravessando gerações.
+</p>
+
+<p>
+Outra versão diz que esse nome veio da forma como ele viveu. Um homem humilde, bom, sempre disposto a ajudar, respeitado por todos. Assim, o “Santo” não era apenas um apelido, mas um reconhecimento de quem ele era.
+</p>
+
+<p>
+Com o tempo, esse nome passou também para seus filhos. Meu pai era conhecido como <strong>Antôim Santo</strong>, meus tios como <strong>Chico Santo</strong>, <strong>Quinca Santo</strong>, <strong>finado Zé Santo</strong>, e assim o nome se tornou parte da identidade da família — mesmo sem nunca ter sido oficial.
+</p>
+
+<h3>A humildade até o fim</h3>
+
+<p>
+Sua humildade ficou marcada até o fim de sua vida. Meu avô pediu para ser enterrado <strong>na entrada do cemitério de Araquém</strong>, e explicava esse desejo com palavras que revelam profundamente quem ele era: ele dizia que queria ser pisado por todos que entrassem e saíssem do cemitério, porque, para ele, não era nada nesta vida.
+</p>
+
+<p>
+Mais tarde, sua esposa, minha avó Raimundinha, e alguns de seus filhos também foram sepultados no mesmo local, fortalecendo ainda mais esse vínculo de união familiar.
+</p>
+
+<h3>A caminhada da família rumo a Brasília</h3>
+
+<p>
+A vida da família seguiu marcada por muitas lutas e desafios. No sertão cearense, na região de Coreaú, no distrito de Araquém, as dificuldades eram grandes. A seca castigava, a comida era pouca, e sobreviver exigia coragem todos os dias.
+</p>
+
+<p>
+Meu pai ainda jovem já enfrentava essa realidade dura. Trabalhou desde cedo ajudando na construção de um pequeno açude na fazenda da família, carregando barro e pedra no lombo de jumento, tentando guardar água para os tempos difíceis.
+</p>
+
+<p>
+Mesmo com todo esforço, a situação piorava com a seca. A fome era uma ameaça constante. Foi então que surgiu a decisão de partir. Com esperança de uma vida melhor, meu pai resolveu seguir viagem rumo a Brasília, que estava sendo construída.
+</p>
+
+<p>
+A viagem foi extremamente difícil. Minha mãe estava grávida e eles já tinham quatro filhos pequenos. Venderam o pouco que tinham — animais, utensílios e até o que servia para o sustento — para conseguir pagar a viagem.
+</p>
+
+<p>
+Partiram em um caminhão pau de arara, junto com muitos outros retirantes. Era uma viagem longa, de muitos dias, enfrentando calor, poeira, fome, cansaço e incertezas.
+</p>
+
+<p>
+Essa travessia representa a força, a coragem e a união da nossa família — uma história que nunca será esquecida.
+</p>
+
+</div>
+
+</body>
+</html>
+>>>>>>> aae1163667ba1cc9c399b15c4e749018281f718d
