@@ -192,11 +192,12 @@
       background: #f7f1e8;
     }
 
-    .card-foto img.zoomed {
-      transform: scale(2);
-      z-index: 1000;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.30);
-    }
+   .card-foto img.zoomed {
+  transform: scale(2);
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
 
     .card-foto p {
       text-align: center;
@@ -268,6 +269,21 @@
         transform: scale(1.35);
       }
     }
+    .intro-pais {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f6f1;
+  border-left: 5px solid #8B6F47;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.intro-pais h2 {
+  margin-bottom: 15px;
+  color: #5a4326;
+}
   </style>
 </head>
 <body id="topo">
@@ -294,7 +310,34 @@
 
   <div class="container">
 
-    <h2>🌿 De Reis ao Sertão</h2>
+    <h2>🌿 Antônio e Edite</h2>
+    <section class="intro-pais">
+  
+
+  <p>
+    Esta história começa com duas vidas simples, mas profundamente marcantes.
+  </p>
+
+  <p>
+    <strong>Antônio Teles de Menezes</strong> nasceu em 15 de novembro de 1931, em Coreaú, no estado do Ceará. 
+    Homem de valores firmes, construiu sua vida com dignidade, trabalho e dedicação à família.
+  </p>
+
+  <p>
+    <strong>Edite Maria de Jesus</strong> nasceu em 1º de outubro de 1934, também em Coreaú, Ceará. 
+    Mulher de fé, força e amor, foi o coração que sustentou e uniu toda a família.
+  </p>
+
+  <p>
+    Unidos pelo matrimônio por volta do ano de 1953, construíram juntos uma história de luta, fé, união e amor, 
+    formando uma família numerosa com <strong>14 filhos</strong>, entre eles vivos e aqueles que partiram ainda crianças (um natimorto) .
+  </p>
+
+  <p>
+    Mesmo diante das dificuldades da vida, deixaram como maior herança os valores de respeito, fé, união e perseverança, 
+    que continuam vivos em cada filho, neto e descendente.
+  </p>
+</section>
     <p class="sub">A saga da família Teles de Menezes — uma herança que atravessa séculos</p>
 
     <p>
@@ -309,19 +352,11 @@
     </p>
 
     <div class="foto-centro">
-      <img src="pais.jpeg" alt="Antônio Teles de Menezes e Edite Maria de Jesus">
+      <img src="antonio-edite.jpeg" alt="Antônio Teles de Menezes e Edite Maria de Jesus">
       <p>Antônio Teles de Menezes e Edite Maria de Jesus</p>
     </div>
 
-    <div class="destaque">
-      <h3>✨ Objetivo deste site</h3>
-      <p>
-        Este site foi criado para preservar a memória da família, reunir histórias,
-        fotografias, documentos e organizar a árvore genealógica para as gerações
-        presentes e futuras.
-      </p>
-    </div>
-
+    
     <hr>
 
     <div class="secao">
