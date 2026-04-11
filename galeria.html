@@ -121,16 +121,19 @@
       text-align: center;
     }
 
+    /* 🔥 CORREÇÃO DEFINITIVA */
     .card-foto img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: auto;
+      max-height: 360px;
+      object-fit: contain;
       border-radius: 10px;
       border: 1px solid #c8a97e;
       box-shadow: 0 4px 10px rgba(0,0,0,0.12);
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: block;
+      margin: 0 auto;
       position: relative;
       z-index: 1;
       background: #f7f1e8;
@@ -138,7 +141,9 @@
 
     .card-foto img.zoomed {
       transform: scale(2);
+      max-height: none; /* 👈 AGORA TODAS AMPLIAM IGUAL */
       z-index: 1000;
+      position: relative;
       box-shadow: 0 10px 28px rgba(0,0,0,0.30);
     }
 
@@ -168,8 +173,10 @@
         font-size: 28px;
       }
 
+      /* 🔥 CORREÇÃO MOBILE */
       .card-foto img {
-        height: 200px;
+        height: auto;
+        max-height: 280px;
       }
 
       .card-foto img.zoomed {
@@ -206,6 +213,8 @@
       retratos antigos, encontros, irmãos, descendentes e lembranças afetivas.
       Clique em cada foto para ampliar e clique novamente para voltar.
     </p>
+
+    <!-- 👇 TODAS SUAS FOTOS CONTINUAM IGUAIS (NÃO MEXI) -->
 
     <div class="secao-galeria">
       <h3>👨‍👩‍👧‍👦 Pais e retratos familiares</h3>
