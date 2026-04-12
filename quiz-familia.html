@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passa ou Repassa da Família - Leões de Araquém</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #3e2f23;
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('familia-antiga.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header {
+      background: transparent;
+      color: #3e2f23;
+      text-align: center;
+      padding: 26px 16px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+    }
+
+    .subtitulo {
+      margin-top: 10px;
+      color: #6b4f3a;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .menu-btn {
+      text-decoration: none;
+      color: white;
+      background-color: #A68A64;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .menu-btn:hover {
+      background-color: #6F5A3E;
+      transform: scale(1.05);
+    }
+
+    .menu-btn.ativo {
+      background-color: #6F5A3E;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      background: rgba(255, 248, 239, 0.95);
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #5a3e36;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      text-align: center;
+      color: #6b4f3a;
+      font-style: italic;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .observacao {
+      background: #fffdf8;
+      border: 1px solid #d8c3a5;
+      border-left: 6px solid #c8a97e;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      line-height: 1.8;
+    }
+
+    .quiz-item {
+      background: #fffdf8;
+      border: 1px solid #d8c3a5;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .quiz-item h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+      color: #5a3e36;
+      font-size: 22px;
+    }
+
+    .pergunta {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .resposta {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.8);
+      border-left: 5px solid #c8a97e;
+      border-radius: 10px;
+      line-height: 1.8;
+      color: #4a3728;
+    }
+
+    .botao-resposta {
+      background-color: #A68A64;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .botao-resposta:hover {
+      background-color: #6F5A3E;
+      transform: scale(1.03);
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #ceb190, transparent);
+      margin: 34px 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b4f3a;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        margin: 20px 12px;
+        padding: 22px;
+      }
+
+      header h1 {
+        font-size: 28px;
+      }
+
+      .subtitulo {
+        font-size: 15px;
+      }
+
+      .quiz-item h3 {
+        font-size: 20px;
+      }
+
+      .botao-resposta {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Passa ou Repassa da Família</h1>
+    <div class="subtitulo">
+      Perguntas e respostas sobre a história, a genealogia e as curiosidades da família.
+    </div>
+
+    <div class="menu">
+      <a href="index.html" class="menu-btn">Início</a>
+      <a href="pais.html" class="menu-btn">Meus Pais</a>
+      <a href="historia.html" class="menu-btn">História Familiar</a>
+      <a href="genealogia.html" class="menu-btn">Genealogia</a>
+      <a href="documentos.html" class="menu-btn">Documentos Históricos</a>
+      <a href="grande-familia.html" class="menu-btn">Grande Família</a>
+      <a href="curiosidades.html" class="menu-btn">Curiosidades</a>
+      <a href="galeria.html" class="menu-btn">Galeria</a>
+      <a href="contato.html" class="menu-btn">Contato</a>
+      <a href="quiz-familia.html" class="menu-btn ativo">Passa ou Repassa</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>🎤 Quiz da Família</h2>
+    <p class="intro">
+      Quem for curioso pode ir treinando desde já 😄<br>
+      Toque em “Ver resposta” para conferir cada uma.
+    </p>
+
+    <div class="observacao">
+      Este espaço foi criado para divertir, recordar e valorizar a história da família.
+      As perguntas abaixo podem ser usadas na brincadeira do encontro ou simplesmente
+      como uma forma carinhosa de conhecer melhor nossas raízes.
+    </div>
+
+    <div class="quiz-item">
+      <h3>1. Quantos filhos Antônio e Edite tiveram ao todo?</h3>
+      <div class="pergunta">Quantos filhos Antônio Teles de Menezes e Edite Maria de Jesus tiveram?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">14 filhos.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>2. Quantos filhos faleceram ainda jovens?</h3>
+      <div class="pergunta">Quantos filhos do casal faleceram ainda jovens?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">3 filhos.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>3. Quais foram os filhos que faleceram ainda jovens?</h3>
+      <div class="pergunta">Quais eram os nomes dos filhos que faleceram ainda jovens na família?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Áurea, Alfredo e Francisca (Francisquinha).</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>4. Qual foi a primeira filha a falecer ainda jovem?</h3>
+      <div class="pergunta">Qual foi a primeira filha a falecer ainda jovem na família?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Áurea.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>5. Quem foi o primeiro filho do casal?</h3>
+      <div class="pergunta">Qual foi o primeiro filho de Antônio e Edite?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Matias Lima de Menezes.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>6. Quem foi o último filho do casal?</h3>
+      <div class="pergunta">Qual foi o filho mais novo de Antônio e Edite?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Gleisson Teles de Menezes.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>7. Quem é o neto mais velho?</h3>
+      <div class="pergunta">Quem é o neto mais velho de Antônio e Edite?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Rodinei, filho de Roza e Tarcísio.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>8. Quem é a neta mais nova?</h3>
+      <div class="pergunta">Quem é a neta mais nova de Antônio e Edite?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Rafaela, filha de Clóves e Maria do Carmo.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>9. Quem foi o avô paterno dos 14 filhos?</h3>
+      <div class="pergunta">Qual era o nome do avô paterno dos filhos de Antônio e Edite?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Paulo Lima de Menezes.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>10. Quem foi a avó paterna dos 14 filhos?</h3>
+      <div class="pergunta">Qual era o nome da avó paterna dos filhos de Antônio e Edite?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Raimunda Ermina de Menezes.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>11. Quem foi o avô materno?</h3>
+      <div class="pergunta">Qual era o nome do pai de Edite Maria de Jesus?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Antônio Zefirino Marques de Souza.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>12. Quem foi a avó materna?</h3>
+      <div class="pergunta">Qual era o nome da mãe de Edite Maria de Jesus?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Roza Maria de Jesus.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>13. De qual estado veio a família antes de Brasília?</h3>
+      <div class="pergunta">Antes de morar em Brasília, de qual estado veio a família?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Do Ceará.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>14. Qual é a cidade de origem da família?</h3>
+      <div class="pergunta">Qual é o nome da cidade de origem da família no Ceará?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Coreaú.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>15. Por que a família veio para Brasília?</h3>
+      <div class="pergunta">Qual foi a principal razão da vinda da família do Ceará para Brasília?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Em busca de melhores condições de vida e de novas oportunidades.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>16. Qual era o sobrenome da família do pai?</h3>
+      <div class="pergunta">Qual é o sobrenome da família paterna?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Teles de Menezes.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>17. Qual era o sobrenome da família da mãe?</h3>
+      <div class="pergunta">Qual é o sobrenome da família materna?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Marques de Souza.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>18. Qual filha da família se tornou freira?</h3>
+      <div class="pergunta">Quem foi a filha da família que se tornou freira?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Francisquinha, conhecida como Irmã Maria de Jesus, irmã de Edite Maria de Jesus.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>19. Qual apelido ficou conhecido na família?</h3>
+      <div class="pergunta">Qual apelido ficou conhecido e atravessou gerações na família?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">“Santo”.</div>
+    </div>
+
+    <div class="quiz-item">
+      <h3>20. Como o avô era conhecido na comunidade?</h3>
+      <div class="pergunta">Como o avô Paulo Lima de Menezes era visto pelas pessoas da comunidade?</div>
+      <button class="botao-resposta" onclick="toggleResposta(this)">Ver resposta</button>
+      <div class="resposta">Como um homem simples, humilde, respeitado e muito querido, conhecido por muitos como “Santo”.</div>
+    </div>
+
+    <hr>
+
+    <div class="observacao">
+      Depois, se você quiser, eu posso transformar essa mesma página em uma versão ainda mais divertida,
+      com perguntas de múltipla escolha, pontuação e resultado final no celular.
+    </div>
+  </div>
+
+  <footer>
+    Site da família em construção com carinho, memória e pesquisa genealógica.
+  </footer>
+
+  <script>
+    function toggleResposta(botao) {
+      const resposta = botao.nextElementSibling;
+
+      if (resposta.style.display === "block") {
+        resposta.style.display = "none";
+        botao.textContent = "Ver resposta";
+      } else {
+        resposta.style.display = "block";
+        botao.textContent = "Ocultar resposta";
+      }
+    }
+  </script>
+
+</body>
+</html>
